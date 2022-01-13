@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
-
+    static public MovingObject instance;
+    public string currentMapName ; //transferMap 스크립트에 있는 transferMapName 의 변수값을 저장
     public LayerMask layerMask;
     private BoxCollider2D boxCollider2D;
 
@@ -26,8 +27,16 @@ public class MovingObject : MonoBehaviour
     private Animator animator;
     void Start()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
+        if(instance == null)
+        {
+            
+            DontDestroyOnLoad(this.gameObject);
+            boxCollider2D = GetComponent<BoxCollider2D>();
+            animator = GetComponent<Animator>();
+            instance = this;
+        }
+        else Destroy(this.gameObject);
+
     }
 
 

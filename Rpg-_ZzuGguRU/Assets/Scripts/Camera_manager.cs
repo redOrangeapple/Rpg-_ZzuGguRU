@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Camera_manager : MonoBehaviour
 {
+    static public Camera_manager instance;
     //카메라가 따라갈 대상
     public GameObject target;
 
@@ -13,7 +14,16 @@ public class Camera_manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(instance == null)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            instance = this;
+        }
+        else 
+        Destroy(this.gameObject);
+
+
+
     }
 
     // Update is called once per frame
