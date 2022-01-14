@@ -7,6 +7,15 @@ public class MovingObject : MonoBehaviour
     static public MovingObject instance;
     public string currentMapName ; //transferMap 스크립트에 있는 transferMapName 의 변수값을 저장
     public LayerMask layerMask;
+
+
+    public string WalkSound_001;
+    public string WalkSound_002;
+    public string WalkSound_003;
+    public string WalkSound_004;
+
+    private AudioManager theAudio;
+
     private BoxCollider2D boxCollider2D;
 
     public float speed;
@@ -24,6 +33,14 @@ public class MovingObject : MonoBehaviour
 
     private bool ApplyRunFlag = false;
     // Start is called before the first frame update
+
+
+    /// <summary>
+    /// audooclip 을 이용하여 사운드를 이용해봅시다
+    /// </summary>
+   
+
+
     private Animator animator;
     void Start()
     {
@@ -33,6 +50,11 @@ public class MovingObject : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             boxCollider2D = GetComponent<BoxCollider2D>();
             animator = GetComponent<Animator>();
+            theAudio = FindObjectOfType<AudioManager>();
+
+       
+
+
             instance = this;
         }
         else Destroy(this.gameObject);
@@ -84,6 +106,28 @@ public class MovingObject : MonoBehaviour
 
             animator.SetBool("Walking",true);
 
+            int tmp = Random.Range(1,4);
+            switch(tmp)
+            {
+                case 1: 
+                theAudio.Play(WalkSound_001);
+                break;
+                
+                case 2: 
+                theAudio.Play(WalkSound_002);
+                break;
+                
+                case 3:
+                theAudio.Play(WalkSound_003);
+                break;
+
+                case 4:
+                theAudio.Play(WalkSound_004);
+                break;
+
+            }
+                
+
             while(currentWalkCount < WalkCount)
             {
                 if (vector.x != 0)
@@ -101,6 +145,7 @@ public class MovingObject : MonoBehaviour
                 }
                 currentWalkCount++;
                   yield return new WaitForSeconds(0.01f);
+                
             }
             currentWalkCount = 0 ;
 
