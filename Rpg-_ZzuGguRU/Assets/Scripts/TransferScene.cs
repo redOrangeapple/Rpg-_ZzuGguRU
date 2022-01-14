@@ -4,19 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class TransFerMap : MonoBehaviour
+public class TransferScene: MonoBehaviour
 {
 
     public string transFerMapName;
 
-    public Transform target;
-
-    public BoxCollider2D targetBound;
+    //public Transform target;
     // Start is called before the first frame update
     private MovingObject thePlayer;
     private Camera_manager theCamera;
-
-
     void Start()
     {
         thePlayer = FindObjectOfType<MovingObject>();
@@ -29,14 +25,8 @@ public class TransFerMap : MonoBehaviour
         Debug.Log("충돌 발생");
         if(other.gameObject.name=="Player")
         {
-            thePlayer.currentMapName = transFerMapName;
-
-            theCamera.SetBound(targetBound);
-           //SceneManager.LoadScene(transFerMapName);
-           thePlayer.transform.position = target.transform.position;
-           theCamera.transform.position =  new Vector3(target.transform.position.x,target.transform.position.y,theCamera.transform.position.z);
-
-
+           thePlayer.currentMapName = transFerMapName;
+           SceneManager.LoadScene(transFerMapName);
         }
 
 
