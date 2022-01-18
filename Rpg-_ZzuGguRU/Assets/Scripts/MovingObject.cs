@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingObject : MonoBehaviour
 {
+    public string CharacterName;
     public int WalkCount;
    protected int currentWalkCount;
 
@@ -15,17 +16,32 @@ public class MovingObject : MonoBehaviour
 
      protected bool NpcCanMove = true;
 
+     private bool notCoroutine = false;
 
-     protected void Move(string _dir,int _frequency)
+    public Queue<string> queue;
+
+     public void Move(string _dir,int _frequency = 5)
     {
-        StartCoroutine(Movecoroutine(_dir,_frequency));
+
+        queue.Enqueue(_dir);
+
+        if(!notCoroutine)
+        {
+           notCoroutine=true;
+            StartCoroutine(Movecoroutine(_dir,_frequency));
+        }
+     
 
     }
     IEnumerator Movecoroutine(string _dir,int _frequency)
     {
-        NpcCanMove = false;
+
+        while(queue.Count !=0)
+        {
+            string direction = queue.Dequeue();
+            NpcCanMove = false;
         vector.Set(0,0,vector.z);
-        switch(_dir)
+        switch(direction)
         {
             case "Up":
             vector.y=1f;
@@ -59,6 +75,10 @@ public class MovingObject : MonoBehaviour
 
             currentWalkCount=0;
             NpcCanMove = true;
+
+        }   
+           animator.SetBool("Walking",false);
+           notCoroutine = false;
     }
 
     protected bool CheckCollision()

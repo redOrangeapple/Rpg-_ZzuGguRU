@@ -34,25 +34,30 @@ public class Player_Manager : MovingObject
     /// audooclip 을 이용하여 사운드를 이용해봅시다
     /// </summary>
 
-    void Start()
+    private void Awake()
     {
         if(instance == null)
         {
             
             DontDestroyOnLoad(this.gameObject);
-            boxCollider2D = GetComponent<BoxCollider2D>();
-            animator = GetComponent<Animator>();
-            theAudio = FindObjectOfType<AudioManager>();
-
-       
-
-
+         
+    
             instance = this;
         }
         else Destroy(this.gameObject);
 
     }
 
+    void Start() {
+
+            queue = new Queue<string>();
+
+            boxCollider2D = GetComponent<BoxCollider2D>();
+            animator = GetComponent<Animator>();
+            theAudio = FindObjectOfType<AudioManager>();
+
+    
+    }
 
     //코르틴을이용하여 다중 처리하기
     //코르틴을 이용하여 움직임 제어하기
