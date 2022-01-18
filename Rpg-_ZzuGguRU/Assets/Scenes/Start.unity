@@ -639,7 +639,8 @@ GameObject:
   - component: {fileID: 861552534}
   - component: {fileID: 861552536}
   - component: {fileID: 861552537}
-  m_Layer: 0
+  - component: {fileID: 861552538}
+  m_Layer: 6
   m_Name: NPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861552533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 425, y: -143, z: 0}
+  m_LocalPosition: {x: 429.2, y: -136.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -746,14 +747,44 @@ MonoBehaviour:
   WalkCount: 20
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   speed: 2.4
-  boxCollider2D: {fileID: 0}
+  boxCollider2D: {fileID: 861552538}
   animator: {fileID: 861552536}
   npc:
     NPCmove: 0
-    direction: []
+    direction:
+    - Up
+    - Up
+    - Down
+    - Down
     frequency: 4
+--- !u!61 &861552538
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861552533}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.2}
+    oldSize: {x: 48, y: 85}
+    newSize: {x: 0.48, y: 0.85}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 48, y: 48}
+  m_EdgeRadius: 0
 --- !u!1001 &1037719827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1019,7 +1050,7 @@ GameObject:
   - component: {fileID: 1248823109}
   - component: {fileID: 1248823110}
   - component: {fileID: 1248823105}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248823104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 331.6, y: -144, z: 0}
+  m_LocalPosition: {x: 336, y: -143, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1146,10 +1177,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0029371679, y: -4.788519}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.2}
@@ -1160,7 +1191,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5038129, y: 9.918446}
+  m_Size: {x: 48, y: 48}
   m_EdgeRadius: 0
 --- !u!50 &1248823110
 Rigidbody2D:

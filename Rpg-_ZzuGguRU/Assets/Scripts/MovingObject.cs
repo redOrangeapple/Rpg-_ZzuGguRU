@@ -38,6 +38,26 @@ public class MovingObject : MonoBehaviour
 
         while(queue.Count !=0)
         {
+
+                 switch(_frequency)
+                {
+                    case 1: yield return new WaitForSeconds(4f);
+                    break;
+
+                    case 2: yield return new WaitForSeconds(3f);
+                    break;
+
+                    case 3: yield return new WaitForSeconds(2f);
+                    break;
+
+                    case 4: yield return new WaitForSeconds(1f);
+                    break;
+
+                    case 5: 
+                    break;
+                }
+            
+
             string direction = queue.Dequeue();
             NpcCanMove = false;
         vector.Set(0,0,vector.z);
@@ -60,13 +80,29 @@ public class MovingObject : MonoBehaviour
             animator.SetFloat("DirX",vector.x);
             animator.SetFloat("DirY",vector.y);
 
+                while(true)
+                {
+                    bool CheckCollisionFlag = CheckCollision();
+                        if(CheckCollisionFlag)
+                        {
+                            animator.SetBool("Walking",false);
+                            yield return new WaitForSeconds(1f);
+                        }
+                        else break;
+
+                }
+
             animator.SetBool("Walking",true);
+
+            boxCollider2D.offset  = new Vector2(vector.x *0.7f *speed*WalkCount,vector.y *0.7f*speed*WalkCount);
 
          while(currentWalkCount < WalkCount)
             {
                 transform.Translate(vector.x*speed,vector.y*speed,0);
            
                 currentWalkCount++;
+                if(currentWalkCount == 12)
+                boxCollider2D.offset = Vector2.zero;
                   yield return new WaitForSeconds(0.01f);
                 
             }
