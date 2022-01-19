@@ -29,11 +29,12 @@ public class Player_Manager : MovingObject
     private bool ApplyRunFlag = false;
     // Start is called before the first frame update
 
+    public bool notMove = false;
+
 
     /// <summary>
     /// audooclip 을 이용하여 사운드를 이용해봅시다
     /// </summary>
-
     private void Awake()
     {
         if(instance == null)
@@ -64,7 +65,7 @@ public class Player_Manager : MovingObject
     IEnumerator MoveCoroutine()
     {
 
-            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0)
+            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0 && !notMove)
             {
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
@@ -157,7 +158,7 @@ public class Player_Manager : MovingObject
     // Update is called once per frame
     void Update()
     {
-        if(canMove)
+        if(canMove && !notMove)
         {
        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
