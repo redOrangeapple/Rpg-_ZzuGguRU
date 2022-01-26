@@ -36,6 +36,8 @@ public class MovingObject : MonoBehaviour
 
       IEnumerator MoveCoroutine(string _dir,int _frequency)
       {
+
+        Debug.Log("잘된거냐");
         while(queue.Count !=0)
         {
 
