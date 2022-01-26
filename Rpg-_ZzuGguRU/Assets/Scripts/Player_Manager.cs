@@ -34,22 +34,23 @@ public class Player_Manager : MovingObject
     /// audooclip 을 이용하여 사운드를 이용해봅시다
     /// </summary>
 
-    void Start()
+    private void Awake()
     {
-        if(instance == null)
+           if(instance == null)
         {
             
             DontDestroyOnLoad(this.gameObject);
-            boxCollider2D = GetComponent<BoxCollider2D>();
-            animator = GetComponent<Animator>();
-            theAudio = FindObjectOfType<AudioManager>();
-
-       
-
-
             instance = this;
         }
         else Destroy(this.gameObject);
+
+    }
+    void Start()
+    {
+            queue = new Queue<string>();
+            boxCollider2D = GetComponent<BoxCollider2D>();
+            animator = GetComponent<Animator>();
+            theAudio = FindObjectOfType<AudioManager>();
 
     }
 
@@ -80,6 +81,12 @@ public class Player_Manager : MovingObject
 
             animator.SetFloat("DirX",vector.x);
             animator.SetFloat("DirY",vector.y);
+
+            bool checkCollsionFlag = base.CheckCollsion();
+            
+            if(checkCollsionFlag) break;
+                
+            
 
             RaycastHit2D hit;
             Vector2 start = transform.position; //캐릭터의 현재 위치값
@@ -119,6 +126,7 @@ public class Player_Manager : MovingObject
 
             }
                 
+ boxCollider2D.offset = new Vector2(vector.x*0.7f*speed*WalkCount,vector.y*0.7f*speed*WalkCount);
 
             while(currentWalkCount < WalkCount)
             {
@@ -135,7 +143,12 @@ public class Player_Manager : MovingObject
                 {
                     currentWalkCount++;
                 }
+
+                
                 currentWalkCount++;
+
+                    if(currentWalkCount==12)
+                boxCollider2D.offset= Vector2.zero;
                   yield return new WaitForSeconds(0.01f);
                 
             }
