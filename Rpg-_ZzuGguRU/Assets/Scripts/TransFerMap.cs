@@ -13,13 +13,13 @@ public class TransFerMap : MonoBehaviour
 
     public BoxCollider2D targetBound;
     // Start is called before the first frame update
-    private MovingObject thePlayer;
+    private Player_Manager thePlayer;
     private Camera_manager theCamera;
 
 
     void Start()
     {
-        thePlayer = FindObjectOfType<MovingObject>();
+        thePlayer = FindObjectOfType<Player_Manager>();
         theCamera = FindObjectOfType<Camera_manager>();
     }
 
