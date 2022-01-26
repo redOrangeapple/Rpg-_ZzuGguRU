@@ -8,12 +8,12 @@ public class Startpoint : MonoBehaviour
 
     public string startPoint; // 맵의 이동 플레이어가 시작될 위치
     
-    private Player_Manager thePlayer;
+    private MovingObject thePlayer;
     // Start is called before the first frame update
     void Start()
     {
 
-        thePlayer = FindObjectOfType<Player_Manager>();
+        thePlayer = FindObjectOfType<MovingObject>();
         theCamera = FindObjectOfType<Camera_manager>();
 
         if( startPoint == thePlayer.currentMapName)
