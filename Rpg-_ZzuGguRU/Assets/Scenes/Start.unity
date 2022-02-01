@@ -507,7 +507,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -27318941
   m_SortingLayer: 5
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e8cc1233614ffaf438331a9afb15362e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1108,7 +1108,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832231802}
-  - component: {fileID: 832231803}
   m_Layer: 5
   m_Name: Dialogue_Manager
   m_TagString: Untagged
@@ -1138,23 +1137,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &832231803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832231801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ed3462e048274d4b9e1dfe73f203af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 905457822}
-  rendererSprite: {fileID: 477638559}
-  rendererDialogueWindow: {fileID: 667581171}
-  animSprite: {fileID: 477638560}
-  animDialogueWindow: {fileID: 667581172}
 --- !u!1 &861552533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1611,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cfc561798a712eb40a34770f478da9c6, type: 3}
     volumn: 0
     loop: 0
+  - name: typeSound
+    clip: {fileID: 8300000, guid: 281e9f75c7d9f7a44ad3cd685cd581db, type: 3}
+    volumn: 1
+    loop: 0
+  - name: EnterSound
+    clip: {fileID: 8300000, guid: 77074f0debb4654489174811fe98ea35, type: 3}
+    volumn: 1
+    loop: 0
 --- !u!4 &1164776235
 Transform:
   m_ObjectHideFlags: 0
@@ -1690,6 +1680,7 @@ MonoBehaviour:
   WalkSound_003: footSteps003
   WalkSound_004: footSteps004
   Run_Faster: 2.4
+  notMove: 0
 --- !u!212 &1248823106
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2148,6 +2139,7 @@ GameObject:
   - component: {fileID: 2031037878}
   - component: {fileID: 2031037877}
   - component: {fileID: 2031037876}
+  - component: {fileID: 2031037880}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2236,6 +2228,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2031037880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031037875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ed3462e048274d4b9e1dfe73f203af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 905457822}
+  rendererSprite: {fileID: 477638559}
+  rendererDialogueWindow: {fileID: 667581171}
+  animSprite: {fileID: 477638560}
+  animDialogueWindow: {fileID: 667581172}
+  typeSound: typeSound
+  EnterSound: EnterSound
+  talking: 0
 --- !u!1 &2130673341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &2130673342
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class OrderManager : MonoBehaviour
     private Player_Manager thePlayer; // 이벤트 도중에 키입력 처리 방지
     private List<MovingObject> characters;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +123,15 @@ public class OrderManager : MonoBehaviour
 
     }
 
+    public void notMove()
+    {
+        thePlayer.notMove = true;
+
+    }
+    public void Move()
+    {
+        thePlayer.notMove = false;
+    }
 
     // Update is called once per frame  
     void Update()

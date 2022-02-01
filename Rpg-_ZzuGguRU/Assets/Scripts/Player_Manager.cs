@@ -27,6 +27,8 @@ public class Player_Manager : MovingObject
     private bool canMove =true;
 
     private bool ApplyRunFlag = false;
+
+    public bool notMove = false;
     // Start is called before the first frame update
 
 
@@ -60,7 +62,7 @@ public class Player_Manager : MovingObject
     IEnumerator MoveCoroutine()
     {
 
-            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0)
+            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0 && !notMove)
             {
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
@@ -168,7 +170,7 @@ public class Player_Manager : MovingObject
     // Update is called once per frame
     void Update()
     {
-        if(canMove)
+        if(canMove && !notMove)
         {
        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {

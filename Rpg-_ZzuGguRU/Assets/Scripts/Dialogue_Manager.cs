@@ -20,6 +20,13 @@ public class Dialogue_Manager : MonoBehaviour
     private int count ; // 대화 진행 상황 카운트
     public Animator animSprite;
     public Animator animDialogueWindow;
+
+    public string typeSound;
+    public string EnterSound;
+
+    private AudioManager theAudio;
+    private OrderManager theOrder;
+
     public bool talking=false;
     #region Singleton
          void Awake() {
@@ -42,6 +49,8 @@ public class Dialogue_Manager : MonoBehaviour
         listSentences = new List<string>();
         listSprite = new List<Sprite>();
         listDialogueWindows = new List<Sprite>();
+        theAudio = FindObjectOfType<AudioManager>();
+        theOrder = FindObjectOfType<OrderManager>();
     }
 
     // Update is called once per frame
@@ -53,6 +62,9 @@ public class Dialogue_Manager : MonoBehaviour
             {
                 count++;
                 text.text="";
+
+                theAudio.Play(EnterSound);
+
                 if(count == listSentences.Count)
                 {
                     StopAllCoroutines();
@@ -74,7 +86,7 @@ public class Dialogue_Manager : MonoBehaviour
     public void ShowDialogue(Dialogue dialogue)
     {
         talking = true;
-
+        theOrder.notMove();
         for(int i = 0 ; i< dialogue.sentences.Length ; i++)
         {
             listSentences.Add(dialogue.sentences[i]);
@@ -97,6 +109,7 @@ public class Dialogue_Manager : MonoBehaviour
          animSprite.SetBool("Appear",false);
         animDialogueWindow.SetBool("Appear",false);
         talking = false;
+        theOrder.Move();
     }
     
 
@@ -147,6 +160,10 @@ public class Dialogue_Manager : MonoBehaviour
         for(int i = 0 ; i < listSentences[count].Length ;i++)
         {
             text.text += listSentences[count][i]; // 화면에 한글자 씩 출력
+            if(i%2 ==1)
+            {
+                theAudio.Play(typeSound);
+            }
             yield return new WaitForSeconds(0.01f);
         }
 
