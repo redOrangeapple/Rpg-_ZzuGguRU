@@ -25,7 +25,6 @@ public class Dialogue_Manager : MonoBehaviour
     public string EnterSound;
 
     private AudioManager theAudio;
-    private OrderManager theOrder;
 
     public bool talking=false;
     #region Singleton
@@ -50,7 +49,6 @@ public class Dialogue_Manager : MonoBehaviour
         listSprite = new List<Sprite>();
         listDialogueWindows = new List<Sprite>();
         theAudio = FindObjectOfType<AudioManager>();
-        theOrder = FindObjectOfType<OrderManager>();
     }
 
     // Update is called once per frame
@@ -86,7 +84,7 @@ public class Dialogue_Manager : MonoBehaviour
     public void ShowDialogue(Dialogue dialogue)
     {
         talking = true;
-        theOrder.notMove();
+        
         for(int i = 0 ; i< dialogue.sentences.Length ; i++)
         {
             listSentences.Add(dialogue.sentences[i]);
@@ -109,7 +107,7 @@ public class Dialogue_Manager : MonoBehaviour
          animSprite.SetBool("Appear",false);
         animDialogueWindow.SetBool("Appear",false);
         talking = false;
-        theOrder.Move();
+    
     }
     
 
