@@ -17,6 +17,7 @@ public class Sound
         Source =  _source;
         Source.clip =clip;
         Source.loop=loop;
+        Source.volume = volumn;
     }
 
     public void SetVolumn()

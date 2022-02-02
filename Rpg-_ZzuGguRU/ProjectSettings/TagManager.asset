@@ -53,6 +53,9 @@ TagManager:
   - name: AboveObject
     uniqueID: 553886725
     locked: 0
+  - name: Weather
+    uniqueID: 3426897255
+    locked: 0
   - name: UI
     uniqueID: 4267648355
     locked: 0
