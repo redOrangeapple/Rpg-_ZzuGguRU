@@ -16,11 +16,19 @@ public class TransFerMap : MonoBehaviour
     private Player_Manager thePlayer;
     private Camera_manager theCamera;
 
+    private FadeManager thFade;
+
+    private OrderManager theOm;
+
+
+
 
     void Start()
     {
         thePlayer = FindObjectOfType<Player_Manager>();
         theCamera = FindObjectOfType<Camera_manager>();
+        thFade = FindObjectOfType<FadeManager>();
+        theOm = FindObjectOfType<OrderManager>();
     }
 
     // Update is called once per frame
@@ -29,16 +37,28 @@ public class TransFerMap : MonoBehaviour
         Debug.Log("충돌 발생");
         if(other.gameObject.name=="Player")
         {
+            StartCoroutine(TransferCoutine());
+
+        }
+    }
+    IEnumerator TransferCoutine()
+    {
+            theOm.notMove();
+            thFade.FadeOut();
+
+            yield return new WaitForSeconds(1f);
+
             thePlayer.currentMapName = transFerMapName;
 
             theCamera.SetBound(targetBound);
            //SceneManager.LoadScene(transFerMapName);
            thePlayer.transform.position = target.transform.position;
            theCamera.transform.position =  new Vector3(target.transform.position.x,target.transform.position.y,theCamera.transform.position.z);
-
-
-        }
+            thFade.FadeIn();
+            theOm.Move();
 
 
     }
+
 }
+

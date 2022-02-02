@@ -12,6 +12,7 @@ public class Event001 : MonoBehaviour
     private Player_Manager thePlayer; // DirY == 1f 일때 
 
     private bool flag;
+    private FadeManager theFade;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class Event001 : MonoBehaviour
         theDm = FindObjectOfType<Dialogue_Manager>();
         theOM = FindObjectOfType<OrderManager>();
         thePlayer = FindObjectOfType<Player_Manager>();
+        theFade = FindObjectOfType<FadeManager>();
         
 
     }
@@ -49,6 +51,9 @@ public class Event001 : MonoBehaviour
         theOM.Move("Player","Up");
 
         yield return new WaitUntil(()=> thePlayer.queue.Count == 0);
+
+
+        theFade.Flash();
 
         theDm.ShowDialogue(dialogue_002);
 
