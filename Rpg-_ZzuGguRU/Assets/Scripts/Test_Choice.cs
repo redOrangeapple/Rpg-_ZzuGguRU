@@ -19,7 +19,7 @@ public class Test_Choice : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
      if(!flag)
      {
-         Debug.Log("선택지 코르틴 접속 성공~!");
+         //Debug.Log("선택지 코르틴 접속 성공~!");
          StartCoroutine(Acoroutin());
      }   
 
