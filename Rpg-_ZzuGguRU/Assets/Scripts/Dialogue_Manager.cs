@@ -26,7 +26,12 @@ public class Dialogue_Manager : MonoBehaviour
 
     private AudioManager theAudio;
 
+   // private bool keyActivated = false;
     public bool talking=false;
+
+    private bool OnlyText =false;
+
+
     #region Singleton
          void Awake() {
          
@@ -51,39 +56,26 @@ public class Dialogue_Manager : MonoBehaviour
         theAudio = FindObjectOfType<AudioManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowText(string[] _sentences)
     {
-        if(talking)
+        talking = true;
+        OnlyText = true;
+        
+        for(int i = 0 ; i< _sentences.Length ; i++)
         {
-            if(Input.GetKeyDown(KeyCode.Z))
-            {
-                count++;
-                text.text="";
+            listSentences.Add(_sentences[i]);
 
-                theAudio.Play(EnterSound);
 
-                if(count == listSentences.Count)
-                {
-                    StopAllCoroutines();
-                    ExitDialogue();
-                    
-                }
-                else
-                {
-                    StopAllCoroutines();
-                    StartCoroutine(StartDialogueCoroutine());
-
-                }
-
-            }
         }
+
+        StartCoroutine(StartTextCoroutine());   
     }
 
 
     public void ShowDialogue(Dialogue dialogue)
     {
         talking = true;
+        OnlyText = false;
         
         for(int i = 0 ; i< dialogue.sentences.Length ; i++)
         {
@@ -108,6 +100,21 @@ public class Dialogue_Manager : MonoBehaviour
         animDialogueWindow.SetBool("Appear",false);
         talking = false;
     
+    }
+    IEnumerator StartTextCoroutine()
+    {
+       // keyActivated = true;
+        
+        for(int i = 0 ; i < listSentences[count].Length ;i++)
+        {
+            text.text += listSentences[count][i]; // 화면에 한글자 씩 출력
+            if(i%2 ==1)
+            {
+                theAudio.Play(typeSound);
+            }
+            yield return new WaitForSeconds(0.01f);
+        }
+
     }
     
 
@@ -154,6 +161,7 @@ public class Dialogue_Manager : MonoBehaviour
 
         }
     
+       // keyActivated = true;
 
         for(int i = 0 ; i < listSentences[count].Length ;i++)
         {
@@ -167,6 +175,41 @@ public class Dialogue_Manager : MonoBehaviour
 
 
 
+    }
+
+
+    void Update()
+    {
+        if(talking) 
+        {
+            if(Input.GetKeyDown(KeyCode.Z))
+            {
+              
+                count++;
+                text.text="";
+
+                theAudio.Play(EnterSound);
+
+                if(count == listSentences.Count)
+                {
+                    StopAllCoroutines();
+                    ExitDialogue();
+                    
+                }
+                else
+                {
+                    StopAllCoroutines();
+
+                    if(OnlyText)  StartCoroutine(StartTextCoroutine());
+                    else         StartCoroutine(StartDialogueCoroutine());
+
+                   
+ 
+
+                }
+
+            }
+        }
     }
 
 }
