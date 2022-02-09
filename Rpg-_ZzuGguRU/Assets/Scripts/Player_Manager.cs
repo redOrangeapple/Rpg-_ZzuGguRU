@@ -149,7 +149,7 @@ public class Player_Manager : MovingObject
                 
                 currentWalkCount++;
 
-                    if(currentWalkCount==12)
+                    if(currentWalkCount==10)
                 boxCollider2D.offset= Vector2.zero;
                   yield return new WaitForSeconds(0.01f);
                 
