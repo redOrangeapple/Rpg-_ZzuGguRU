@@ -58,7 +58,7 @@ public class Inventory : MonoBehaviour
         inventoryItemList.Add(new Item(21001,"사파이어 반지","1분마다 마나 1 자동회복",Item.ItemType.Equip));
         inventoryItemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         inventoryItemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
-        inventoryItemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.Quest));
+        inventoryItemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.ETC));
 
 
 
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
                 {
                     theAudio.Play(open_Sound);
                     theOrder.notMove();
-                    go.SetActive(true);
+                    go.SetActive(true); // 인벤토리 창 활성화
                     selected_Tab = 0 ;
                     tabActivated= true;
                     itemActivated = false;
@@ -136,14 +136,19 @@ public class Inventory : MonoBehaviour
                     {
                         theAudio.Play(Enter_Sound);
                         Color color = SelectedTabImages[selected_Tab].GetComponent<Image>().color;
-                        color.a = 0.5f;
-                        SelectedTabImages[selected_Tab].GetComponent<Image>().color= color;
+                        color.a=0.25f;
+                        SelectedTabImages[selected_Tab].GetComponent<Image>().color = color;
                         itemActivated = true;
                         tabActivated =false;
                         PreventExec= true;
 
-                        ShowItem();
+                        Debug.Log("아니 시발 색이 안바뀌는데?");
+                        Debug.Log(selected_Tab);
+                        
+                        
+                        
 
+                        ShowItem();
 
                     }
 
@@ -195,12 +200,13 @@ public class Inventory : MonoBehaviour
                         Seleted_func_item();
                     }
             
-                    else if(Input.GetKeyUp(KeyCode.Z) && !PreventExec)
+                    else if(Input.GetKeyDown(KeyCode.Z) && !PreventExec)
                     {
+            
                         if(selected_Tab ==0)  //소모품
                         {
                              theAudio.Play(Enter_Sound);
-                             stopKeyInput=true;  
+                             //stopKeyInput=true;  
                              //물약을 마실지에 대한 선택지 호출 
                         }
                         else if(selected_Tab == 1) // 장비
@@ -209,9 +215,10 @@ public class Inventory : MonoBehaviour
                         }
                         else{ theAudio.Play(beep_Sound);}
 
-                    }
-                }
-                  if(Input.GetKeyDown(KeyCode.X))
+                 
+                  }
+                   
+                    if(Input.GetKeyDown(KeyCode.X))
                     {
                         theAudio.Play(Cancle_Sound);
                         StopAllCoroutines();
@@ -220,7 +227,7 @@ public class Inventory : MonoBehaviour
                         ShowTab();
                     }
                 }
-
+            }
                 if(Input.GetKeyUp(KeyCode.Z)) // 중복 실행 방지
                 PreventExec = false;
             }
@@ -228,9 +235,10 @@ public class Inventory : MonoBehaviour
         
     }
 
-
     public void ShowItem()
     {
+
+
         inventoryTabList.Clear();
         RemoveSlots();
         selecteditem = 0 ;
@@ -279,10 +287,10 @@ public class Inventory : MonoBehaviour
 
         }
 
-        for(int i = 0; i < inventoryItemList.Count; i++) // 인벤토리 tab 리스트 내용을 인벤토리 슬롯에 추가
+        for(int i = 0; i < inventoryTabList.Count; i++) // 인벤토리 tab 리스트 내용을 인벤토리 슬롯에 추가
         {
             slots[i].gameObject.SetActive(true);
-            slots[i].Additem(inventoryItemList[i]);
+            slots[i].Additem(inventoryTabList[i]);
 
         }
 
@@ -308,7 +316,7 @@ public class Inventory : MonoBehaviour
 
             }
 
-            Description_TEXT.text = inventoryTabList[selected_Tab].itemDescription;
+           Description_TEXT.text = inventoryTabList[selecteditem].itemDescription;
 
             StartCoroutine(SelectedItemEffectCoroutin());
         }
@@ -357,7 +365,8 @@ public class Inventory : MonoBehaviour
                 Debug.Log(selected_Tab);
                 SelectedTabImages[i].GetComponent<Image>().color = color;      
         }
-  
+       // color.a = 0.5f;
+        //SelectedTabImages[selected_Tab].GetComponent<Image>().color = color; 
         Description_TEXT.text = tabDescription[selected_Tab];
 
         StartCoroutine(SelectedTabEffectCoroutin());

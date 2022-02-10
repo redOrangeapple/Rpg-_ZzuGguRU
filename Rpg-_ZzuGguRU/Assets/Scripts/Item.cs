@@ -27,11 +27,11 @@ public class Item
 
     public Item(int _itemID, string  _itemName,string _itemDes , ItemType _itemtype,int _itemCount=1)
     {
-        _itemID = itemID;
-        _itemName = itemName;
-        _itemDes = itemDescription;
-        _itemtype = itemType;
-        _itemCount= itemCount;
+        itemID=_itemID ;
+        itemName=_itemName ;
+        itemDescription=_itemDes ;
+        itemType= _itemtype;
+        itemCount=_itemCount;
 
         itemIcon = Resources.Load("Item/"+ _itemID.ToString(),typeof(Sprite)) as Sprite;
 
