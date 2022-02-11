@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    private DataBase_Manager theData;
     private OrderManager theOrder;
     private AudioManager theAudio;
     
@@ -45,6 +46,7 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+        theData = FindObjectOfType<DataBase_Manager>();
         theOrder = FindObjectOfType<OrderManager>();
         theAudio = FindObjectOfType<AudioManager>();
         inventoryItemList =  new List<Item>();
@@ -61,6 +63,7 @@ public class Inventory : MonoBehaviour
         inventoryItemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         inventoryItemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         inventoryItemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.ETC));
+       // inventoryItemList.Add(new Item(99999,"고급장비","세이버의 혼이 담긴 칼",Item.ItemType.Equip));
 
 
 
@@ -242,6 +245,42 @@ public class Inventory : MonoBehaviour
         
     }
 
+    public void GetItem(int _item_ID, int _count =1)
+    {
+        for(int i = 0 ; i <theData.itemList.Count;i++)
+        {
+            if(_item_ID == theData.itemList[i].itemID)
+            {
+
+                for(int j = 0 ; j < inventoryItemList.Count; j++)
+                {
+                    if(inventoryItemList[j].itemID == _item_ID)
+                    {   
+                        if(inventoryItemList[j].itemType == Item.ItemType.Use)
+                        inventoryItemList[j].itemCount += _count;
+                        return;
+                    }
+                    else
+                    {   
+                        for( int k=0 ; k<_count; k++)
+                        inventoryItemList.Add(theData.itemList[i]);
+                        return;
+
+                    }
+
+                }
+
+                inventoryItemList.Add(theData.itemList[i]);
+                inventoryItemList[inventoryItemList.Count-1].itemCount = _count;
+                return;
+
+            }
+
+        }
+
+        Debug.LogError("There is a no ItemID about that item");
+
+    }
     public void ShowItem()
     {
          if(Input.GetKeyDown(KeyCode.Escape))

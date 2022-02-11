@@ -44,5 +44,6 @@ public class DataBase_Manager : MonoBehaviour
         itemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         itemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         itemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.Quest));
+        itemList.Add(new Item(99999,"고급장비","세이버의 혼이 담긴 칼",Item.ItemType.Equip));
     }
 }
