@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     public string Key_sound;
     public string open_Sound;
     public string beep_Sound;
+    public string yummuSound;
 
     private Inventory_Slot[] slots;
 
@@ -27,6 +28,8 @@ public class Inventory : MonoBehaviour
 
     public GameObject go ; // 인벤토리 활성화 , 비활성화 역할 플래그
     public GameObject[] SelectedTabImages; // 카테고리 항목
+
+    private Confirm_Cancel theCC;
     //public GameObject SeletctionWindow;
 
     private int selecteditem; // 선택된 아이템
@@ -44,6 +47,9 @@ public class Inventory : MonoBehaviour
 
     public int invenFlag = 0;
 
+    public GameObject CCC_flag;
+
+
     void Start()
     {
         theData = FindObjectOfType<DataBase_Manager>();
@@ -52,17 +58,18 @@ public class Inventory : MonoBehaviour
         inventoryItemList =  new List<Item>();
         inventoryTabList = new List<Item>();
         slots = tf.GetComponentsInChildren<Inventory_Slot>();
+        theCC = FindObjectOfType<Confirm_Cancel>();
 
-        inventoryItemList.Add(new Item(10001,"빨간포션","체력 50 회복",Item.ItemType.Use));
-        inventoryItemList.Add(new Item(10002,"파란포션","마나 50 회복",Item.ItemType.Use));
-        inventoryItemList.Add(new Item(10003,"고급 빨간포션","체력 350 회복",Item.ItemType.Use));
-        inventoryItemList.Add(new Item(10004,"고급 파란포션","마나 80 회복",Item.ItemType.Use));
-        inventoryItemList.Add(new Item(11001,"랜덤 상자","랜덤으로 포션 등장",Item.ItemType.Use));
-        inventoryItemList.Add(new Item(20001,"소검","초보자용 검",Item.ItemType.Equip));
-        inventoryItemList.Add(new Item(21001,"사파이어 반지","1분마다 마나 1 자동회복",Item.ItemType.Equip));
-        inventoryItemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
-        inventoryItemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
-        inventoryItemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.ETC));
+        // inventoryItemList.Add(new Item(10001,"빨간포션","체력 50 회복",Item.ItemType.Use));
+        // inventoryItemList.Add(new Item(10002,"파란포션","마나 50 회복",Item.ItemType.Use));
+        // inventoryItemList.Add(new Item(10003,"고급 빨간포션","체력 350 회복",Item.ItemType.Use));
+        // inventoryItemList.Add(new Item(10004,"고급 파란포션","마나 80 회복",Item.ItemType.Use));
+        // inventoryItemList.Add(new Item(11001,"랜덤 상자","랜덤으로 포션 등장",Item.ItemType.Use));
+        // inventoryItemList.Add(new Item(20001,"소검","초보자용 검",Item.ItemType.Equip));
+        // inventoryItemList.Add(new Item(21001,"사파이어 반지","1분마다 마나 1 자동회복",Item.ItemType.Equip));
+        // inventoryItemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
+        // inventoryItemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
+        // inventoryItemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.ETC));
        // inventoryItemList.Add(new Item(99999,"고급장비","세이버의 혼이 담긴 칼",Item.ItemType.Equip));
 
 
@@ -216,11 +223,14 @@ public class Inventory : MonoBehaviour
                         if(selected_Tab ==0)  //소모품
                         {
                              theAudio.Play(Enter_Sound);
-                             //stopKeyInput=true;  
+                           //  stopKeyInput=true;  
+                             StartCoroutine(CCCoroutine()); 
                              //물약을 마실지에 대한 선택지 호출 
                         }
                         else if(selected_Tab == 1) // 장비
                         {   
+                             theAudio.Play(Enter_Sound);
+                              StartCoroutine(CCCoroutine()); 
                             //장비부분
                         }
                         else{ theAudio.Play(beep_Sound);}
@@ -252,7 +262,7 @@ public class Inventory : MonoBehaviour
             if(_item_ID == theData.itemList[i].itemID)
             {
 
-                for(int j = 0 ; j < inventoryItemList.Count; j++)
+                for(int j = 0 ; j < inventoryItemList.Count;j++)
                 {
                     if(inventoryItemList[j].itemID == _item_ID)
                     {   
@@ -508,6 +518,42 @@ public class Inventory : MonoBehaviour
                 yield return null;
     }
 
+    IEnumerator CCCoroutine()
+    {
+        CCC_flag.SetActive(true);
+        theCC.showChoice("사용","취소");
+        stopKeyInput =true;
+
+        yield return new WaitUntil (()=> !theCC.activated);
+
+        if(!theCC.GetResult())
+        {
+            for(int i = 0 ;  i <inventoryItemList.Count;i++)
+            {
+                if(inventoryItemList[i].itemID == inventoryTabList[selecteditem].itemID)
+                {
+
+                    theData.UseItem(inventoryItemList[i].itemID);
+                    if(inventoryItemList[i].itemCount>1)
+                    inventoryItemList[i].itemCount--;
+                    else
+                    inventoryItemList.RemoveAt(i);
+
+                    theAudio.Play(yummuSound);
+            
+
+                    ShowItem();
+                     break;
+                }
+            
+
+            }
+
+        }
+        stopKeyInput =false;
+        CCC_flag.SetActive(false);
+
+    }
 
     /// <summary>
     /// 선택한 아이템 반짝여

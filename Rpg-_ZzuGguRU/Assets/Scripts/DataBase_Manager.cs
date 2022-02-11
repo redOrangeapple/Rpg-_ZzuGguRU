@@ -31,6 +31,21 @@ public class DataBase_Manager : MonoBehaviour
 
     public List<Item> itemList = new List<Item>();
     
+    public void UseItem(int _item_ID)
+    {
+        switch(_item_ID)
+        {
+            case 10001:
+            Debug.Log("체력 50 회복");
+            break;
+
+            case 10002:
+            Debug.Log("마나 15 회복");
+            break;
+
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
