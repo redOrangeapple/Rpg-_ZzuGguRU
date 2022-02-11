@@ -41,6 +41,8 @@ public class Inventory : MonoBehaviour
 
     private WaitForSeconds waitTime = new WaitForSeconds(0.01f);
 
+    public int invenFlag = 0;
+
     void Start()
     {
         theOrder = FindObjectOfType<OrderManager>();
@@ -71,12 +73,15 @@ public class Inventory : MonoBehaviour
         {
             //Debug.Log("뭔데시발");
             if(Input.GetKeyDown(KeyCode.I))
-            {
+            {       
+                 if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
               //  Debug.Log("I 눌리면 나와");
                 activated = true;
                 
                 if(activated)
                 {
+                    invenFlag++;
                     theAudio.Play(open_Sound);
                     theOrder.notMove();
                     go.SetActive(true); // 인벤토리 창 활성화
@@ -87,21 +92,23 @@ public class Inventory : MonoBehaviour
                 
 
                 }
-                else
-                {
-                    theAudio.Play(Cancle_Sound);
-                    StopAllCoroutines();
-                    go.SetActive(false);
-                    tabActivated = false;
-                    itemActivated = false;
-                    theOrder.Move();
-
-                }
+                // if(Input.GetKeyDown(KeyCode.H))
+                // {   
+                //         Debug.Log("Escape key was pressed");
+                //         theAudio.Play(Cancle_Sound);
+                //         StopAllCoroutines();
+                //         go.SetActive(false);
+                //         tabActivated = false;
+                //         itemActivated = false;
+                //         theOrder.Move();   
+                // }
 
             }
 
             if(activated)
             {   
+                 if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
                 
                 if(tabActivated) //tab 활성화시 키입력 처리
                 {
@@ -237,7 +244,8 @@ public class Inventory : MonoBehaviour
 
     public void ShowItem()
     {
-
+         if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
 
         inventoryTabList.Clear();
         RemoveSlots();
@@ -303,6 +311,8 @@ public class Inventory : MonoBehaviour
 /// </summary>
     public void Seleted_func_item()
     {
+         if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
         StopAllCoroutines();
 
         if(inventoryTabList.Count >0)
@@ -339,6 +349,8 @@ public class Inventory : MonoBehaviour
 
     public void RemoveSlots()
     {
+         if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
         for(int i = 0 ; i < slots.Length ; i++)
         {
             slots[i].RemovItem();
@@ -355,6 +367,8 @@ public class Inventory : MonoBehaviour
 
     public void SelectedTab()
     {
+         if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
         StopAllCoroutines();
         Color color = SelectedTabImages[selected_Tab].GetComponent<Image>().color;
         color.a = 0f;
@@ -378,6 +392,8 @@ public class Inventory : MonoBehaviour
  
     IEnumerator SelectedTabEffectCoroutin()
     {
+         if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
         while(tabActivated)
         {
               Color color = SelectedTabImages[0].GetComponent<Image>().color;
@@ -411,6 +427,9 @@ public class Inventory : MonoBehaviour
     {
         while(itemActivated)
         {
+            if(Input.GetKeyDown(KeyCode.Escape))
+                StartCoroutine(CLoseInventotyCoroutin());
+
               Color color = slots[0].GetComponent<Image>().color;
 
               while(color.a < 0.5f)
@@ -435,6 +454,22 @@ public class Inventory : MonoBehaviour
         }
 
     }
+
+    IEnumerator CLoseInventotyCoroutin()
+    {
+        
+        Debug.Log("Escape key was pressed");
+                theAudio.Play(Cancle_Sound);
+                StopAllCoroutines();
+                go.SetActive(false);
+                tabActivated = false;
+                itemActivated = false;
+                theOrder.Move(); 
+
+                yield return null;
+    }
+
+
     /// <summary>
     /// 선택한 아이템 반짝여
     /// </summary>
