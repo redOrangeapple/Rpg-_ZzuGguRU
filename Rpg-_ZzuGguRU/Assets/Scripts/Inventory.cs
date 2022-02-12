@@ -48,6 +48,7 @@ public class Inventory : MonoBehaviour
     public int invenFlag = 0;
 
     public GameObject CCC_flag;
+    public GameObject prefab_floating_TEXT;
 
 
     void Start()
@@ -261,6 +262,12 @@ public class Inventory : MonoBehaviour
         {
             if(_item_ID == theData.itemList[i].itemID)
             {
+                var clone = Instantiate(prefab_floating_TEXT,
+                Player_Manager.instance.transform.position,Quaternion.Euler(Vector3.zero));
+
+                clone.GetComponent<Floating_TEXT>().text.text = theData.itemList[i].itemName +" "+_count+"개 획득++";
+
+                clone.transform.SetParent(this.transform);
 
                 for(int j = 0 ; j < inventoryItemList.Count;j++)
                 {
@@ -526,7 +533,7 @@ public class Inventory : MonoBehaviour
 
         yield return new WaitUntil (()=> !theCC.activated);
 
-        if(!theCC.GetResult())
+        if(theCC.GetResult())
         {
             for(int i = 0 ;  i <inventoryItemList.Count;i++)
             {

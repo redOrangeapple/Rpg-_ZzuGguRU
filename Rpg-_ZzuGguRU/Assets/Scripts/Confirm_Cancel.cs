@@ -52,7 +52,7 @@ public class Confirm_Cancel : MonoBehaviour
                 theAudio.Play(Cancle_Sound);
                 keyinput = false;
                 activated = false;
-                result = false;
+                result =true;
             }
 
         }
@@ -69,14 +69,14 @@ public class Confirm_Cancel : MonoBehaviour
         if(result)
         {
              Debug.Log("2차성공");
-            Confirm_Panel.gameObject.SetActive(true);
-            Cancel_Panel.gameObject.SetActive(false);
+            Confirm_Panel.gameObject.SetActive(false);
+            Cancel_Panel.gameObject.SetActive(true);
 
         }
         else
         {
-            Confirm_Panel.gameObject.SetActive(false);
-            Cancel_Panel.gameObject.SetActive(true);
+            Confirm_Panel.gameObject.SetActive(true);
+            Cancel_Panel.gameObject.SetActive(false);
         }
 
     }
