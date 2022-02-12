@@ -1,0 +1,1032 @@
+fileFormatVersion: 2
+guid: 2873fa1fc86cf4142b8afb0dff1e9e22
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3082378968538891629
+    second: YeOldySkelitonGuy-removebg-preview_0
+  - first:
+      213: -3244808110593032345
+    second: YeOldySkelitonGuy-removebg-preview_1
+  - first:
+      213: 7800945294907126014
+    second: YeOldySkelitonGuy-removebg-preview_2
+  - first:
+      213: 6522546485347178022
+    second: YeOldySkelitonGuy-removebg-preview_3
+  - first:
+      213: 2374628849637494255
+    second: YeOldySkelitonGuy-removebg-preview_4
+  - first:
+      213: -2823818287537327951
+    second: YeOldySkelitonGuy-removebg-preview_5
+  - first:
+      213: 5176142606299905492
+    second: YeOldySkelitonGuy-removebg-preview_6
+  - first:
+      213: -8254087888564624436
+    second: YeOldySkelitonGuy-removebg-preview_7
+  - first:
+      213: -8064646377331739655
+    second: YeOldySkelitonGuy-removebg-preview_8
+  - first:
+      213: 3883452978893015310
+    second: YeOldySkelitonGuy-removebg-preview_9
+  - first:
+      213: 4309776147212564678
+    second: YeOldySkelitonGuy-removebg-preview_10
+  - first:
+      213: 1752112933459651187
+    second: YeOldySkelitonGuy-removebg-preview_11
+  - first:
+      213: -2912692097109443285
+    second: YeOldySkelitonGuy-removebg-preview_12
+  - first:
+      213: 3342801052634141536
+    second: YeOldySkelitonGuy-removebg-preview_13
+  - first:
+      213: 6017893156492450014
+    second: YeOldySkelitonGuy-removebg-preview_14
+  - first:
+      213: 1765625975270119281
+    second: YeOldySkelitonGuy-removebg-preview_15
+  - first:
+      213: -4997406324634464881
+    second: YeOldySkelitonGuy-removebg-preview_16
+  - first:
+      213: -6295141453625797833
+    second: YeOldySkelitonGuy-removebg-preview_17
+  - first:
+      213: -1973672287540825140
+    second: YeOldySkelitonGuy-removebg-preview_18
+  - first:
+      213: -7807581817748494919
+    second: YeOldySkelitonGuy-removebg-preview_19
+  - first:
+      213: -7529048608484881253
+    second: YeOldySkelitonGuy-removebg-preview_20
+  - first:
+      213: -6359603045005646436
+    second: YeOldySkelitonGuy-removebg-preview_21
+  - first:
+      213: -3102866314230536426
+    second: YeOldySkelitonGuy-removebg-preview_22
+  - first:
+      213: 2044389780804007941
+    second: YeOldySkelitonGuy-removebg-preview_23
+  - first:
+      213: -7443196013325553314
+    second: YeOldySkelitonGuy-removebg-preview_24
+  - first:
+      213: -1854147921190076657
+    second: YeOldySkelitonGuy-removebg-preview_25
+  - first:
+      213: -4370331843589325568
+    second: YeOldySkelitonGuy-removebg-preview_26
+  - first:
+      213: 8235835096191608558
+    second: YeOldySkelitonGuy-removebg-preview_27
+  - first:
+      213: -6000755327740078630
+    second: YeOldySkelitonGuy-removebg-preview_28
+  - first:
+      213: -2639447417654666380
+    second: YeOldySkelitonGuy-removebg-preview_29
+  - first:
+      213: 7131794225821670420
+    second: YeOldySkelitonGuy-removebg-preview_30
+  - first:
+      213: 5086834316786921701
+    second: YeOldySkelitonGuy-removebg-preview_31
+  - first:
+      213: 4859338369544581099
+    second: YeOldySkelitonGuy-removebg-preview_32
+  - first:
+      213: 7345518533980899487
+    second: YeOldySkelitonGuy-removebg-preview_33
+  - first:
+      213: -8892644687207138705
+    second: YeOldySkelitonGuy-removebg-preview_34
+  - first:
+      213: 7210140452153580604
+    second: YeOldySkelitonGuy-removebg-preview_35
+  - first:
+      213: -7603008446778328073
+    second: YeOldySkelitonGuy-removebg-preview_36
+  - first:
+      213: 8783001857667689863
+    second: YeOldySkelitonGuy-removebg-preview_37
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 93
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39aba15c8a03935d0800000000000000
+      internalID: -3082378968538891629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 71
+        width: 13
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76fbbc3173028f2d0800000000000000
+      internalID: -3244808110593032345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 93
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0b13f1a66824c60800000000000000
+      internalID: 7800945294907126014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 93
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6265712787db48a50800000000000000
+      internalID: 6522546485347178022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 95
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed89008b5064f020800000000000000
+      internalID: 2374628849637494255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 71
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b0f51d8a38cfc8d0800000000000000
+      internalID: -2823818287537327951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 71
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dd354ba64a55d740800000000000000
+      internalID: 5176142606299905492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 71
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc360412cc6937d80800000000000000
+      internalID: -8254087888564624436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 72
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3300029de941090800000000000000
+      internalID: -8064646377331739655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 71
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e09c9dca8ebc4e530800000000000000
+      internalID: 3883452978893015310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 47
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c87e0c52966fcb30800000000000000
+      internalID: 4309776147212564678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 47
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aea3d0e61c05810800000000000000
+      internalID: 1752112933459651187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 35
+        width: 6
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d34b348f90497d0800000000000000
+      internalID: -2912692097109443285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 35
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0635f01b8d3046e20800000000000000
+      internalID: 3342801052634141536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 31
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed89cf011f9d38350800000000000000
+      internalID: 6017893156492450014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 29
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1779d264873c08810800000000000000
+      internalID: 1765625975270119281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 27
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d4fd5dc65a5aab0800000000000000
+      internalID: -4997406324634464881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 37
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7335cc5733a23a8a0800000000000000
+      internalID: -6295141453625797833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 37
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3b81ee28b1c94e0800000000000000
+      internalID: -1973672287540825140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 39
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b56d4ef3b5e5a390800000000000000
+      internalID: -7807581817748494919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 38
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c0c926e22738790800000000000000
+      internalID: -7529048608484881253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 38
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9522f5a9b62eb7a0800000000000000
+      internalID: -6359603045005646436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 39
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61763c2e68760f4d0800000000000000
+      internalID: -3102866314230536426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 29
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 508f24b8ca12f5c10800000000000000
+      internalID: 2044389780804007941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 27
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51702069a474b890800000000000000
+      internalID: -7443196013325553314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 29
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0fbf641a4eb446e0800000000000000
+      internalID: -1854147921190076657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 28
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00db740e7567953c0800000000000000
+      internalID: -4370331843589325568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 21
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee6223972609b4270800000000000000
+      internalID: 8235835096191608558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 23
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad51502a2d809bca0800000000000000
+      internalID: -6000755327740078630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 23
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b1f5bde8cce5bd0800000000000000
+      internalID: -2639447417654666380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 23
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c5841001939f260800000000000000
+      internalID: 7131794225821670420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 6
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0f9532cd0189640800000000000000
+      internalID: 5086834316786921701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 6
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef61205086df6340800000000000000
+      internalID: 4859338369544581099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 6
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f98cafc303680f560800000000000000
+      internalID: 7345518533980899487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 11
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6af041b5caf69480800000000000000
+      internalID: -8892644687207138705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_35
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 11
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3cd94f4a809f0460800000000000000
+      internalID: 7210140452153580604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_36
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 11
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fbbb71a910bc7690800000000000000
+      internalID: -7603008446778328073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: YeOldySkelitonGuy-removebg-preview_37
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 11
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78de0ebb7ad73e970800000000000000
+      internalID: 8783001857667689863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

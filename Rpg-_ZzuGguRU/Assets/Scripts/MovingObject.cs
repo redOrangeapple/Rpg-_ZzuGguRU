@@ -103,7 +103,7 @@ public class MovingObject : MonoBehaviour
          
                 currentWalkCount++;
 
-                if(currentWalkCount==12)
+                if(currentWalkCount == WalkCount *0.5f  + 2)
                 boxCollider2D.offset= Vector2.zero;
                   yield return new WaitForSeconds(0.01f);
                 
