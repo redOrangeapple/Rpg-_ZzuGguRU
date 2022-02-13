@@ -29,6 +29,12 @@ public class Player_Manager : MovingObject
     private bool ApplyRunFlag = false;
 
     public bool notMove = false;
+
+    private bool Attacking = false;
+    public float attackDelay;
+    private float currentAttackDelay;
+
+    public string atkSound;
     // Start is called before the first frame update
 
 
@@ -36,7 +42,7 @@ public class Player_Manager : MovingObject
     /// audooclip 을 이용하여 사운드를 이용해봅시다
     /// </summary>
 
-    private void Awake()
+    void Awake()
     {
            if(instance == null)
         {
@@ -62,7 +68,7 @@ public class Player_Manager : MovingObject
     IEnumerator MoveCoroutine()
     {
 
-            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0 && !notMove)
+            while(Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal")!=0 && !notMove && !Attacking)
             {
                 if(Input.GetKey(KeyCode.LeftShift))
                 {
@@ -170,16 +176,38 @@ public class Player_Manager : MovingObject
     // Update is called once per frame
     void Update()
     {
-        if(canMove && !notMove)
+        if(canMove && !notMove && !Attacking)
         {
-       if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-        {
-            canMove = false;
-           StartCoroutine(MoveCoroutine());    
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
+            {
+                canMove = false;
+            StartCoroutine(MoveCoroutine());    
+
+            }
 
         }
 
+        if(!notMove && !Attacking)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                AudioManager.instance.Play(atkSound);
+                currentAttackDelay = attackDelay;
+                Attacking = true;
+                animator.SetBool("Attacking",true);
+
+            }
+
         }
-  
+
+        if(Attacking)
+        {
+            currentAttackDelay -= Time.deltaTime;
+            if(currentAttackDelay<=0)
+            {
+                animator.SetBool("Attacking",false);
+                Attacking = false;
+            }
+        }
     }
 }

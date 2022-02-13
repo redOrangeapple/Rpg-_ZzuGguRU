@@ -92,6 +92,19 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      if(CurrentExp >= needExp[Character_LV]  )
+      {
+          Character_LV++;
+
+          Hp+=Character_LV*2;
+          Mp+= Character_LV+5;
+
+          CurrentExp = Hp;
+          CurrentMp = Mp;
+
+          atk++;
+          def++;
+
+      }
     }
 }

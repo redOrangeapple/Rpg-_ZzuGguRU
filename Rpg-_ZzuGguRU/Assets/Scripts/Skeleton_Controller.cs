@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Skeleton_Controller : MovingObject
 {
-    public int atk ; // 스켈레톤의 공격
+    //public int atk ; // 스켈레톤의 공격
     public float attackDelay ; // 공격 대기 시간
     public float inter_MoveWaitTime; // 움직임 대기 시간
     private float current_interMWT;
@@ -71,7 +71,7 @@ public class Skeleton_Controller : MovingObject
         AudioManager.instance.Play(atkSound);
         if(NearPlayer()) 
         {
-            PlayerStat.instance.Hit(atk);
+            PlayerStat.instance.Hit(GetComponent<Skeletin_STAT>().atk);
 
         }
     }
