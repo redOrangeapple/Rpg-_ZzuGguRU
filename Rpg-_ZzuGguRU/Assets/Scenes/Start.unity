@@ -12184,6 +12184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs_Floatinf_TEXT: {fileID: 4741094641912049282, guid: e3df826f0aaa54b448c545519665790b, type: 3}
   parent: {fileID: 2031037875}
+  effect: {fileID: 3836228080909524536, guid: bad183df6f78065449f5569ac539d8a9, type: 3}
   atkSound: Player_attack
 --- !u!212 &1645235939
 SpriteRenderer:
