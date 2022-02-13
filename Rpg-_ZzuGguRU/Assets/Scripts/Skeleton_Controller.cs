@@ -70,8 +70,10 @@ public class Skeleton_Controller : MovingObject
         yield return new WaitForSeconds(attackDelay);
         AudioManager.instance.Play(atkSound);
         if(NearPlayer()) 
-        Debug.Log("플레이어가 "+ atk + "데미지를 공격당함");
+        {
+            PlayerStat.instance.Hit(atk);
 
+        }
     }
 
 
@@ -79,17 +81,17 @@ public class Skeleton_Controller : MovingObject
     {
         PlayerPos = Player_Manager.instance.transform.position;
 
-        if( Mathf.Abs(Mathf.Abs(PlayerPos.x) - Mathf.Abs(this.transform.position.x)) <= speed *WalkCount *1.01f )
+        if( Mathf.Abs(Mathf.Abs(PlayerPos.x) - Mathf.Abs(this.transform.position.x)) <= speed *WalkCount *1.5f )
         {
-           if(Mathf.Abs(Mathf.Abs(PlayerPos.y) - Mathf.Abs(this.transform.position.y)) <= speed *WalkCount*0.5f)
+           if(Mathf.Abs(Mathf.Abs(PlayerPos.y) - Mathf.Abs(this.transform.position.y)) <= speed *WalkCount*1.5f)
            return true;
 
         }
 
 
-         if( Mathf.Abs(Mathf.Abs(PlayerPos.y) - Mathf.Abs(this.transform.position.y)) <= speed *WalkCount *1.01f )
+         if( Mathf.Abs(Mathf.Abs(PlayerPos.y) - Mathf.Abs(this.transform.position.y)) <= speed *WalkCount *1.5f )
         {
-           if(Mathf.Abs(Mathf.Abs(PlayerPos.x) - Mathf.Abs(this.transform.position.x)) <= speed *WalkCount*0.5f)
+           if(Mathf.Abs(Mathf.Abs(PlayerPos.x) - Mathf.Abs(this.transform.position.x)) <= speed *WalkCount*1.5f)
            return true;
 
         }

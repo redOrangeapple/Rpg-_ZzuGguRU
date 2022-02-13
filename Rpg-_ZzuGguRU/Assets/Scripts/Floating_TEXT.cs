@@ -13,13 +13,7 @@ public class Floating_TEXT : MonoBehaviour
 
     private Vector3 vector;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         vector.Set(text.transform.position.x,text.transform.position.y + (moveSpeed*Time.deltaTime), text.transform.position.z);

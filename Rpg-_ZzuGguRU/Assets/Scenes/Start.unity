@@ -5327,6 +5327,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: cbd460c133f7bea42a6914376c131423, type: 3}
     volumn: 0.3
     loop: 0
+  - name: Dmg_sound
+    clip: {fileID: 8300000, guid: 21d3f5f56c4800843a715d9d6d6703c1, type: 3}
+    volumn: 0.3
+    loop: 0
 --- !u!4 &1164776235
 Transform:
   m_ObjectHideFlags: 0
@@ -5723,6 +5727,7 @@ GameObject:
   - component: {fileID: 1248823109}
   - component: {fileID: 1248823110}
   - component: {fileID: 1248823105}
+  - component: {fileID: 1248823111}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -5816,7 +5821,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248823104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 333.4, y: -336, z: 0}
+  m_LocalPosition: {x: 334, y: -92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5888,6 +5893,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1248823111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248823104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f213b097dd88b43b350e443aa2bf55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character_LV: 1
+  needExp: 
+  CurrentExp: 0
+  Hp: 50
+  CurrentHp: 0
+  Mp: 0
+  CurrentMp: 0
+  atk: 0
+  def: 0
+  DmgSound: Dmg_sound
+  Prefabs_Floatinf_TEXT: {fileID: 4741094641912049282, guid: e3df826f0aaa54b448c545519665790b, type: 3}
+  parent: {fileID: 2031037875}
 --- !u!224 &1284616214 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5970669244004154183, guid: 58f43655d2a18f14bb861ed910d44b71, type: 3}
@@ -6633,10 +6662,10 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.42331982, y: -4.281336}
+  m_Offset: {x: 1.7535756, y: 4.1647344}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.2}
     oldSize: {x: 14, y: 19}
     newSize: {x: 14, y: 19}
     adaptiveTilingThreshold: 0.5
@@ -6644,7 +6673,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.911463, y: 12.352921}
+  m_Size: {x: 17.570246, y: 15.670531}
   m_EdgeRadius: 0
 --- !u!114 &1456937640
 MonoBehaviour:
@@ -6748,7 +6777,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456937638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 425.5, y: -177, z: 0}
+  m_LocalPosition: {x: 425.5, y: -92, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

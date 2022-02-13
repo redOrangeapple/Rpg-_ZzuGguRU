@@ -9,6 +9,11 @@ public class DataBase_Manager : MonoBehaviour
     //싱글톤
     static public DataBase_Manager instance;
 
+    private PlayerStat thePlayerStat;
+
+    public GameObject Prefabs_Floatinf_TEXT;
+    public GameObject Parent;
+
 #region Singleton
     private void Awake() {
         if(instance == null)
@@ -30,17 +35,46 @@ public class DataBase_Manager : MonoBehaviour
     public bool[] switchs;
 
     public List<Item> itemList = new List<Item>();
+
+
+    private void FloatText(int _number , string color)
+    {
+        Vector3 vector = thePlayerStat.transform.position;
+        vector.y  +=60;
+    GameObject Clone = Instantiate(Prefabs_Floatinf_TEXT,vector,Quaternion.Euler(Vector3.zero));
+
+        Clone.GetComponent<Floating_TEXT>().text.text = _number.ToString();
+        if(color=="Green")
+        Clone.GetComponent<Floating_TEXT>().text.color = Color.green;
+        else if(color =="Blue")
+        Clone.GetComponent<Floating_TEXT>().text.color = Color.blue;
+        Clone.GetComponent<Floating_TEXT>().text.fontSize = 25;
+        Clone.transform.SetParent(Parent.transform);
+
+    }
+
     
     public void UseItem(int _item_ID)
     {
         switch(_item_ID)
         {
             case 10001:
+            if(thePlayerStat.Hp >= thePlayerStat.CurrentHp +50)
+            thePlayerStat.CurrentHp +=50;
+            else
+            thePlayerStat.CurrentHp = thePlayerStat.Hp;
             Debug.Log("체력 50 회복");
+            FloatText(50,"Green");
+
             break;
 
             case 10002:
+            if(thePlayerStat.CurrentMp >= thePlayerStat.Mp+15)
+            thePlayerStat.CurrentMp +=15;
+            else
+            thePlayerStat.CurrentMp = thePlayerStat.Mp;
             Debug.Log("마나 15 회복");
+            FloatText(15,"Blue");
             break;
 
         }
@@ -49,6 +83,7 @@ public class DataBase_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        thePlayerStat = FindObjectOfType<PlayerStat>();
         itemList.Add(new Item(10001,"빨간포션","체력 50 회복",Item.ItemType.Use));
         itemList.Add(new Item(10002,"파란포션","마나 50 회복",Item.ItemType.Use));
         itemList.Add(new Item(10003,"고급 빨간포션","체력 350 회복",Item.ItemType.Use));
