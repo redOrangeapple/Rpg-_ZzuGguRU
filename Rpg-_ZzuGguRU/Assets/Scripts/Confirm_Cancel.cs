@@ -19,7 +19,7 @@ public class Confirm_Cancel : MonoBehaviour
 
     public bool activated;
     private bool keyinput;
-    private bool result=false;
+    private bool result=true;
     void Start()
     {
         theAudio = FindObjectOfType<AudioManager>();
@@ -52,7 +52,7 @@ public class Confirm_Cancel : MonoBehaviour
                 theAudio.Play(Cancle_Sound);
                 keyinput = false;
                 activated = false;
-                result =true;
+                result =false;
             }
 
         }
@@ -82,7 +82,7 @@ public class Confirm_Cancel : MonoBehaviour
     }
 
     public void showChoice(string _ConfirmText , string _CancelText)
-    {
+    {  //Debug.Log("여기 까지는 정상 출력 되나요");
         activated = true;
         result = true;
         Confirm_TEXT.text = _ConfirmText;

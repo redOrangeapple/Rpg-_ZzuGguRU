@@ -8,6 +8,8 @@ public class Inventory : MonoBehaviour
     private DataBase_Manager theData;
     private OrderManager theOrder;
     private AudioManager theAudio;
+
+    private Equipment theEquip;
     
     public string Enter_Sound;
     public string Cancle_Sound;
@@ -60,6 +62,7 @@ public class Inventory : MonoBehaviour
         inventoryTabList = new List<Item>();
         slots = tf.GetComponentsInChildren<Inventory_Slot>();
         theCC = FindObjectOfType<Confirm_Cancel>();
+        theEquip = FindObjectOfType<Equipment>();
 
         // inventoryItemList.Add(new Item(10001,"빨간포션","체력 50 회복",Item.ItemType.Use));
         // inventoryItemList.Add(new Item(10002,"파란포션","마나 50 회복",Item.ItemType.Use));
@@ -75,6 +78,11 @@ public class Inventory : MonoBehaviour
 
 
 
+    }
+
+    public void Equip2Inventory(Item _item)
+    {
+        inventoryItemList.Add(_item);
     }
 
     // Update is called once per frame
@@ -223,22 +231,24 @@ public class Inventory : MonoBehaviour
             
                         if(selected_Tab ==0)  //소모품
                         {
-                             theAudio.Play(Enter_Sound);
-                           //  stopKeyInput=true;  
-                             StartCoroutine(CCCoroutine()); 
+
+
+                             StartCoroutine(CCCoroutine("사용","취소")); 
                              //물약을 마실지에 대한 선택지 호출 
                         }
                         else if(selected_Tab == 1) // 장비
                         {   
-                             theAudio.Play(Enter_Sound);
-                              StartCoroutine(CCCoroutine()); 
+                              StartCoroutine(CCCoroutine("장착","취소")); 
                             //장비부분
                         }
-                        else{ theAudio.Play(beep_Sound);}
-
+                        else
+                        {
+                             theAudio.Play(beep_Sound);
+                        }
+                
                  
                   }
-                   
+                    }  
                     if(Input.GetKeyDown(KeyCode.X))
                     {
                         theAudio.Play(Cancle_Sound);
@@ -247,7 +257,7 @@ public class Inventory : MonoBehaviour
                         tabActivated=true;
                         ShowTab();
                     }
-                }
+                
             }
                 if(Input.GetKeyUp(KeyCode.Z)) // 중복 실행 방지
                 PreventExec = false;
@@ -367,6 +377,8 @@ public class Inventory : MonoBehaviour
 /// </summary>
     public void Seleted_func_item()
     {
+
+        Debug.Log("닝기미시뷰래");
          if(Input.GetKeyDown(KeyCode.Escape))
                 StartCoroutine(CLoseInventotyCoroutin());
         StopAllCoroutines();
@@ -377,16 +389,14 @@ public class Inventory : MonoBehaviour
             color.a = 0f;
 
             for(int i = 0 ; i < inventoryTabList.Count; i++)
-            {
                 slots[i].selected_ITEM.GetComponent<Image>().color = color;
 
-            }
-
+        
            Description_TEXT.text = inventoryTabList[selecteditem].itemDescription;
 
             StartCoroutine(SelectedItemEffectCoroutin());
         }
-        else Description_TEXT.text = "아이템 하나도 없다";
+        else Description_TEXT.text = "해당타입의 아이템을 소유하고 있지 않습니다";
     }
 /// <summary>
 /// 선택된 아이템을 제외하고 다른 아이템 a 값을 0 으로 초기화
@@ -525,10 +535,14 @@ public class Inventory : MonoBehaviour
                 yield return null;
     }
 
-    IEnumerator CCCoroutine()
+    IEnumerator CCCoroutine(string _Up,string _Down)
     {
+
+        theAudio.Play(Enter_Sound);
+        stopKeyInput =true;
+
         CCC_flag.SetActive(true);
-        theCC.showChoice("사용","취소");
+        theCC.showChoice(_Up,_Down);
         stopKeyInput =true;
 
         yield return new WaitUntil (()=> !theCC.activated);
@@ -539,18 +553,32 @@ public class Inventory : MonoBehaviour
             {
                 if(inventoryItemList[i].itemID == inventoryTabList[selecteditem].itemID)
                 {
+                    if(selected_Tab == 0)
+                    {
+                        theData.UseItem(inventoryItemList[i].itemID);
+                        if(inventoryItemList[i].itemCount>1)
+                        inventoryItemList[i].itemCount--;
+                        else
+                        inventoryItemList.RemoveAt(i);
 
-                    theData.UseItem(inventoryItemList[i].itemID);
-                    if(inventoryItemList[i].itemCount>1)
-                    inventoryItemList[i].itemCount--;
-                    else
-                    inventoryItemList.RemoveAt(i);
-
-                    theAudio.Play(yummuSound);
-            
+                        theAudio.Play(yummuSound);
+                
 
                     ShowItem();
-                     break;
+                    break;
+
+                    }
+                    else if(selected_Tab == 1)
+                    {
+                        theEquip.EquipItem(inventoryItemList[i]);
+                        inventoryItemList.RemoveAt(i);
+                        ShowItem();
+                        break;
+
+                    }
+
+
+               
                 }
             
 
