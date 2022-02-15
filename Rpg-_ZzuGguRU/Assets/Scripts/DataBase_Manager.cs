@@ -89,11 +89,12 @@ public class DataBase_Manager : MonoBehaviour
         itemList.Add(new Item(10003,"고급 빨간포션","체력 350 회복",Item.ItemType.Use));
         itemList.Add(new Item(10004,"고급 파란포션","마나 80 회복",Item.ItemType.Use));
         itemList.Add(new Item(11001,"랜덤 상자","랜덤으로 포션 등장",Item.ItemType.Use));
-        itemList.Add(new Item(20001,"소검","초보자용 검",Item.ItemType.Equip));
+        itemList.Add(new Item(20001,"소검","초보자용 검",Item.ItemType.Equip,3));
         itemList.Add(new Item(20301,"사파이어 반지","1분마다 마나 1 자동회복",Item.ItemType.Equip));
         itemList.Add(new Item(30001,"누런 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         itemList.Add(new Item(30002,"파란 고대 청사진","고대유물 파편",Item.ItemType.Quest));
         itemList.Add(new Item(30003,"고대 유물","고대유물 도감",Item.ItemType.Quest));
-        itemList.Add(new Item(20399,"고급장비","세이버의 혼이 담긴 칼",Item.ItemType.Equip));
+        itemList.Add(new Item(20399,"고급악세사리","세이버의 염원이 1초마다 체력를 일정량 회복시켜줍니다",
+                              Item.ItemType.Equip,0,0,1));
     }
 }

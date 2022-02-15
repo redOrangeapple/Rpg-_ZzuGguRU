@@ -17,17 +17,27 @@ public class PlayerStat : MonoBehaviour
     public int CurrentMp;
 
     public int atk;
+    
     public int def;
+
+    public int recoverHP;
+    public int recoverMp;
 
     public string DmgSound;
 
     public GameObject Prefabs_Floatinf_TEXT;
     public GameObject parent;
 
+    public float time;
+    public float current_time;
+
 
     void Start()
     {
         instance = this;
+        CurrentHp = Hp;
+        CurrentMp = Mp;
+        current_time =time;
         
     }
 
@@ -99,12 +109,25 @@ public class PlayerStat : MonoBehaviour
           Hp+=Character_LV*2;
           Mp+= Character_LV+5;
 
-          CurrentExp = Hp;
+          CurrentHp = Hp;
           CurrentMp = Mp;
 
           atk++;
           def++;
 
+      }
+      current_time -= Time.deltaTime;
+
+      if(current_time<=0)
+      {
+          if(recoverHP>0)
+          {
+              if(CurrentHp + recoverHP <= Hp)
+              CurrentHp +=recoverHP;
+              else
+              CurrentHp= Hp;
+          }
+          current_time = time;
       }
     }
 }

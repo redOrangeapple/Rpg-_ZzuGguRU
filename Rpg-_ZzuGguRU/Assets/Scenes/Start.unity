@@ -1156,7 +1156,7 @@ Transform:
   - {fileID: 1447303912}
   - {fileID: 1994775818}
   - {fileID: 1588733885}
-  - {fileID: 1037719828}
+  - {fileID: 1587750460}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3595,8 +3595,20 @@ MonoBehaviour:
   open_Sound: Open_Sound
   close_sound: Cancel_Sound
   takeOff_sound: Take_off
+  equipSound: Take_off
   GO: {fileID: 1076888299}
-  texts: []
+  texts:
+  - {fileID: 2114974191}
+  - {fileID: 743141842}
+  - {fileID: 96685002}
+  - {fileID: 1868958007}
+  - {fileID: 331511052}
+  - {fileID: 987325557}
+  - {fileID: 137820279}
+  - {fileID: 263928579}
+  - {fileID: 965487968}
+  - {fileID: 1120521817}
+  - {fileID: 956249304}
   img_slots:
   - {fileID: 1721927261}
   - {fileID: 420528514}
@@ -3618,72 +3630,120 @@ MonoBehaviour:
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   - itemID: 0
     itemName: 
     itemDescription: 
     itemCount: 0
     itemIcon: {fileID: 0}
     itemType: 0
+    atk: 0
+    def: 0
+    recoverHP: 0
+    recoverMp: 0
   go_cc: {fileID: 583274562}
 --- !u!1 &617145933
 GameObject:
@@ -6153,11 +6213,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f6a855ad471c24cb87a04b456413a6, type: 3}
---- !u!4 &1037719828 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 221787285128290064, guid: 51f6a855ad471c24cb87a04b456413a6, type: 3}
-  m_PrefabInstance: {fileID: 1037719827}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1053116214
 GameObject:
   m_ObjectHideFlags: 0
@@ -7549,15 +7604,19 @@ MonoBehaviour:
   Character_LV: 1
   needExp: 000000000a0000003200000064000000c8000000f4010000e8030000d00700008813000010270000
   CurrentExp: 0
-  Hp: 1
-  CurrentHp: 0
-  Mp: 0
+  Hp: 50
+  CurrentHp: 50
+  Mp: 50
   CurrentMp: 0
   atk: 5
-  def: 0
+  def: 5
+  recoverHP: 0
+  recoverMp: 0
   DmgSound: Dmg_sound
   Prefabs_Floatinf_TEXT: {fileID: 4741094641912049282, guid: e3df826f0aaa54b448c545519665790b, type: 3}
   parent: {fileID: 2031037875}
+  time: 1
+  current_time: 0
 --- !u!224 &1284616214 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5970669244004154183, guid: 58f43655d2a18f14bb861ed910d44b71, type: 3}
@@ -8365,7 +8424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &1456937639
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8513,7 +8572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hp: 15
   cureentHp: 0
-  atk: 5
+  atk: 10
   def: 1
   exp: 10
 --- !u!1 &1464557408
@@ -13851,6 +13910,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558695882}
   m_CullTransparentMesh: 1
+--- !u!4 &1587750460 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 221787285128290064, guid: 51f6a855ad471c24cb87a04b456413a6, type: 3}
+  m_PrefabInstance: {fileID: 1037719827}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1588733883
 GameObject:
   m_ObjectHideFlags: 0

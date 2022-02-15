@@ -25,7 +25,13 @@ public class Item
         ETC
     }
 
-    public Item(int _itemID, string  _itemName,string _itemDes , ItemType _itemtype,int _itemCount=1)
+    public int atk;
+    public int def;
+    public int recoverHP;
+    public int recoverMp;
+
+    public Item(int _itemID, string  _itemName,string _itemDes , ItemType _itemtype,
+                int _atk=0, int _def=0,int _recoverHp=0, int _recoverMp=0, int _itemCount=1)
     {
         itemID=_itemID ;
         itemName=_itemName ;
@@ -35,6 +41,10 @@ public class Item
 
         itemIcon = Resources.Load("Item/"+ _itemID.ToString(),typeof(Sprite)) as Sprite;
 
+        atk = _atk;
+        def = _def;
+        recoverHP = _recoverHp;
+        recoverMp = _recoverMp;
 
     }
 

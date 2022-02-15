@@ -16,8 +16,16 @@ public class Equipment : MonoBehaviour
     public string close_sound;
     public string takeOff_sound;
 
+    public string equipSound;
+
     private const int WEAPON=0 , SHILED=1,AMULT=2,LEFT_RING=3,Right_RING=4
-    , HELMET=5, ARMOR=6, LEFT_GLOVE=7,RIGHT_GLOVE=8,BELT=9,LEFT_BOOTS=10,Right_BOOTS=11;                                    
+    , HELMET=5, ARMOR=6, LEFT_GLOVE=7,RIGHT_GLOVE=8,BELT=9,LEFT_BOOTS=10,Right_BOOTS=11;       
+
+
+    private const int ATK=0,DEF=1,HPR=6,MPR =7;
+
+    private int added_atk, added_def,added_hpr,added_mpr;
+
 
     public GameObject GO;
 
@@ -72,6 +80,36 @@ public class Equipment : MonoBehaviour
 
 
     }
+
+    private void EquipEffect(Item _item)
+    {
+        thePlayerstat.atk += _item.atk;
+        thePlayerstat.def += _item.def;
+        thePlayerstat.recoverHP += _item.recoverHP;
+        thePlayerstat.recoverMp += _item.recoverMp;
+
+
+        added_atk += _item.atk;
+        added_def += _item.def;
+        added_hpr += _item.recoverHP;
+        added_mpr += _item.recoverMp;
+    }
+    private void CancelEquipEffect(Item _item)
+    {
+        thePlayerstat.atk -= _item.atk;
+        thePlayerstat.def -= _item.def;
+        thePlayerstat.recoverHP -= _item.recoverHP;
+        thePlayerstat.recoverMp -= _item.recoverMp;
+
+        added_atk -= _item.atk;
+        added_def -= _item.def;
+        added_hpr -= _item.recoverHP;
+        added_mpr -= _item.recoverMp;
+
+    }
+
+    
+
     public void EquipItem(Item _item)
     {
         string temp = _item.itemID.ToString();
@@ -107,6 +145,9 @@ public class Equipment : MonoBehaviour
             equipitemList[_count] = _item;
 
         }
+        EquipEffect(_item);
+        theAudio.Play(equipSound);
+        ShowText();
 
     }
 
@@ -133,6 +174,7 @@ public class Equipment : MonoBehaviour
                     Selected_Slot();
                     ClearEquip();
                     ShowEquip();
+                    ShowText();
                 }
                 else 
                 {
@@ -212,11 +254,6 @@ public class Equipment : MonoBehaviour
         
     }
 
-
-
-
-
-
     IEnumerator CCCoroutine(string _Up,string _Down)
     {
         go_cc.SetActive(true);
@@ -230,6 +267,8 @@ public class Equipment : MonoBehaviour
         {
                
             theinven.Equip2Inventory(equipitemList[selectedslots]);
+            CancelEquipEffect(equipitemList[selectedslots]);
+            ShowText();
             equipitemList[selectedslots] = new Item(0,"","",Item.ItemType.Equip);
             theAudio.Play(takeOff_sound);
             ClearEquip();
@@ -240,4 +279,22 @@ public class Equipment : MonoBehaviour
 
     }
 
+    
+
+    public void ShowText()
+    {
+        if(added_atk==0)
+        {
+            texts[ATK].text = thePlayerstat.atk.ToString();
+        }
+        else
+        {
+            texts[ATK].text = thePlayerstat.atk.ToString() + "(+" + added_atk + ")";
+        }
+        
+        texts[DEF].text = thePlayerstat.def.ToString();
+        texts[HPR].text = thePlayerstat.recoverHP.ToString();
+        texts[MPR].text = thePlayerstat.recoverMp.ToString();
+
+    }
 }
