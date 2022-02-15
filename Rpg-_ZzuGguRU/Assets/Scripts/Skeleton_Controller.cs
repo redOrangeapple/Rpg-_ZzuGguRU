@@ -14,9 +14,13 @@ public class Skeleton_Controller : MovingObject
 
     private int random_int;
     private string direction;
+
+    public GameObject healthBarBackGround;
+    public Skeletin_STAT sst;
     // Start is called before the first frame update
     void Start()
     {
+        sst = FindObjectOfType<Skeletin_STAT>();
         queue = new Queue<string>();
         current_interMWT = inter_MoveWaitTime;
     }
@@ -53,14 +57,26 @@ public class Skeleton_Controller : MovingObject
     private void Flip()
     {
         Vector3 flip = transform.localScale;
+        Vector3 flipBar = sst.healthBarBackground.transform.localScale;
 
         if(PlayerPos.x < this.transform.position.x)
+        {
             flip.x= -3.5f;
-        else flip.x = 3.5f;
-
+            flipBar.x=-1f;
+        }
+        
+            else
+            {
+                flip.x = 3.5f;
+                flipBar.x = 1f;
+            }
 
             this.transform.localScale = flip;
+    
+            sst.healthBarBackground.transform.localScale = flipBar;
         animator.SetTrigger("Attack");
+
+
 
         StartCoroutine(WaitCoroutine());
     }

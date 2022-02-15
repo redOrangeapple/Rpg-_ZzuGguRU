@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skeletin_STAT : MonoBehaviour
 {
@@ -11,11 +12,15 @@ public class Skeletin_STAT : MonoBehaviour
     public int def;
     public int exp;
 
+    public GameObject healthBarBackground;
+    public Image healthBarFilled;
+
 
     // Start is called before the first frame update
     void Start()
     {
         cureentHp = Hp;
+        healthBarFilled.fillAmount =1f;
     }
 
     public int Hit(int _PlayerAtk)
@@ -37,7 +42,23 @@ public class Skeletin_STAT : MonoBehaviour
                 PlayerStat.instance.CurrentExp+= exp;
             }
 
+        healthBarFilled.fillAmount = (float)cureentHp/ Hp;
+        healthBarBackground.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(WaitCoroutine());
+
+
         return dmg;
+    }
+
+
+    IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(3f);
+
+        healthBarBackground.SetActive(false);
+ 
+
     }
 
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStat : MonoBehaviour
 {
@@ -30,6 +31,11 @@ public class PlayerStat : MonoBehaviour
 
     public float time;
     public float current_time;
+
+    public Slider Hpslider;
+    public Slider Mpslider;
+
+    
 
 
     void Start()
@@ -102,6 +108,11 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Hpslider.maxValue = Hp;
+        Mpslider.maxValue = Mp;
+        
+        Hpslider.value  = CurrentHp;
+        Mpslider.value = CurrentMp;
       if(CurrentExp >= needExp[Character_LV]  )
       {
           Character_LV++;
