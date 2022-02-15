@@ -27,6 +27,7 @@ public class Equipment : MonoBehaviour
     private int added_atk, added_def,added_hpr,added_mpr;
 
 
+    public GameObject EriyaMagicStick;
     public GameObject GO;
 
     public Text[] texts; // 스텟
@@ -118,6 +119,8 @@ public class Equipment : MonoBehaviour
         {
             case "200" : 
             EquipItemCheck(WEAPON, _item);
+            EriyaMagicStick.SetActive(true);
+            EriyaMagicStick.GetComponent<SpriteRenderer>().sprite = _item.itemIcon;
 
             break; // 무기
             case "201" :
@@ -268,6 +271,8 @@ public class Equipment : MonoBehaviour
                
             theinven.Equip2Inventory(equipitemList[selectedslots]);
             CancelEquipEffect(equipitemList[selectedslots]);
+            if(selectedslots == WEAPON)
+            EriyaMagicStick.SetActive(false);
             ShowText();
             equipitemList[selectedslots] = new Item(0,"","",Item.ItemType.Equip);
             theAudio.Play(takeOff_sound);
