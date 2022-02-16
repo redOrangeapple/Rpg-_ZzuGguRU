@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bound : MonoBehaviour
 {
     private BoxCollider2D bound;
+    public string BoundName;
 
     private Camera_manager theCamera;
     // Start is called before the first frame update
@@ -12,12 +13,17 @@ public class Bound : MonoBehaviour
     {
         bound = GetComponent<BoxCollider2D>();
         theCamera = FindObjectOfType<Camera_manager>();
-        theCamera.SetBound(bound);
+       // theCamera.SetBound(bound);
     }
 
     // Update is called once per frame
-    void Update()
+    public void SetBound()
     {
-        
+        if(theCamera !=null)
+        {
+            theCamera.SetBound(bound);
+
+        }
+
     }
 }

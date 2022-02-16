@@ -8,7 +8,8 @@ public class Player_Manager : MovingObject
  static public Player_Manager instance;
     public string currentMapName ; //transferMap 스크립트에 있는 transferMapName 의 변수값을 저장
 
-
+    public string currentSceneName;
+    
 
     public string WalkSound_001;
     public string WalkSound_002;
@@ -16,6 +17,8 @@ public class Player_Manager : MovingObject
     public string WalkSound_004;
 
     private AudioManager theAudio;
+
+    private Save_Load theSaveLoad;
 
 
 
@@ -59,6 +62,7 @@ public class Player_Manager : MovingObject
             boxCollider2D = GetComponent<BoxCollider2D>();
             animator = GetComponent<Animator>();
             theAudio = FindObjectOfType<AudioManager>();
+            theSaveLoad = FindObjectOfType<Save_Load>();
 
     }
 
@@ -176,6 +180,17 @@ public class Player_Manager : MovingObject
     // Update is called once per frame
     void Update()
     {
+        //저장
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            theSaveLoad.CallSave();
+        }
+        //불러오기
+        if(Input.GetKeyDown(KeyCode.F9))
+        {
+                theSaveLoad.CallLoad();
+        }
+
         if(canMove && !notMove && !Attacking)
         {
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)

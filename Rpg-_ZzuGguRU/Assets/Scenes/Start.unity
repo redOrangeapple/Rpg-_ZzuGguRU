@@ -4026,6 +4026,10 @@ MonoBehaviour:
   close_sound: Cancel_Sound
   takeOff_sound: Take_off
   equipSound: Take_off
+  added_atk: 0
+  added_def: 0
+  added_hpr: 0
+  added_mpr: 0
   EriyaMagicStick: {fileID: 38468430}
   GO: {fileID: 1076888299}
   texts:
@@ -7199,6 +7203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1085132417}
   - component: {fileID: 1085132416}
+  - component: {fileID: 1085132418}
   m_Layer: 0
   m_Name: SchoolFrontBound
   m_TagString: Untagged
@@ -7246,6 +7251,19 @@ Transform:
   m_Father: {fileID: 525761466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085132418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085132415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de41db33ab3f7d342b024e77badd1510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundName: School_front
 --- !u!1 &1094095343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8149,6 +8167,8 @@ GameObject:
   - component: {fileID: 1248823110}
   - component: {fileID: 1248823105}
   - component: {fileID: 1248823111}
+  - component: {fileID: 1248823113}
+  - component: {fileID: 1248823112}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -8176,7 +8196,8 @@ MonoBehaviour:
   speed: 2.4
   boxCollider2D: {fileID: 1248823109}
   animator: {fileID: 1248823108}
-  currentMapName: 
+  currentMapName: Startmap
+  currentSceneName: Start
   WalkSound_001: footSteps001
   WalkSound_002: footSteps002
   WalkSound_003: footSteps003
@@ -8348,6 +8369,57 @@ MonoBehaviour:
   current_time: 0
   Hpslider: {fileID: 9808666}
   Mpslider: {fileID: 532182513}
+--- !u!114 &1248823112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248823104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 632782c969081564fbe7054743dca47a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1248823113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248823104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f0ef1aaec7bed4e8eba6f200ff9e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theData:
+    playerX: 0
+    playerY: 0
+    playerZ: 0
+    playerLV: 0
+    playerHp: 0
+    playerMp: 0
+    playerCurrentHp: 0
+    playerCurrentMp: 0
+    playerCurrentExp: 0
+    playerhpr: 0
+    playermpr: 0
+    playerAtk: 0
+    playerDef: 0
+    playerAdded_atk: 0
+    playerAdded_def: 0
+    playerAdded_hpr: 0
+    playerAdded_Mpr: 0
+    playeriteminventory: 
+    playeriteminventoryCount: 
+    playerEquipitem: 
+    mapName: 
+    sceneName: 
+    swList: 
+    swNameList: []
+    varNameList: []
+    varNumberList: []
 --- !u!224 &1284616214 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5970669244004154183, guid: 58f43655d2a18f14bb861ed910d44b71, type: 3}
@@ -8842,6 +8914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390262304}
   - component: {fileID: 1390262305}
+  - component: {fileID: 1390262306}
   m_Layer: 0
   m_Name: School_1F_Bound
   m_TagString: Untagged
@@ -8889,6 +8962,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 809.7028, y: 618.1079}
   m_EdgeRadius: 0
+--- !u!114 &1390262306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390262303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de41db33ab3f7d342b024e77badd1510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundName: School_front_1foor
 --- !u!1 &1404383544
 GameObject:
   m_ObjectHideFlags: 0
@@ -15828,6 +15914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873977131}
   - component: {fileID: 1873977132}
+  - component: {fileID: 1873977133}
   m_Layer: 0
   m_Name: StartBound
   m_TagString: Untagged
@@ -15875,6 +15962,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 810.2064, y: 616.45746}
   m_EdgeRadius: 0
+--- !u!114 &1873977133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873977130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de41db33ab3f7d342b024e77badd1510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundName: Startmap
 --- !u!1 &1879133836
 GameObject:
   m_ObjectHideFlags: 0
