@@ -21,7 +21,7 @@ public class Item_PickUp : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Z))
         {   
             theAudio.Play(PickUpSound);
-            theInven.GetItem(itemID,2);
+            theInven.GetItem(itemID);
             
             //아이템 을 획득후 필드에 있는 아이템 삭제
 

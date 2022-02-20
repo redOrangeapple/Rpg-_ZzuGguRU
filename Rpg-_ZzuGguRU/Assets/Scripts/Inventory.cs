@@ -37,6 +37,13 @@ public class Inventory : MonoBehaviour
     private int selecteditem; // 선택된 아이템
     private int selected_Tab ; // 선택된 텝
 
+    private int page; // 페이지수
+
+    private int slotCount ; //활성화된 슬롯의 개수
+    
+    private const int MAX_SLOTS_COUNt  = 10 ; // 최대 슬롯의 개수
+     
+
     private bool activated ; // 인벤토리 활성화시 True;
     private bool tabActivated; // 탭 활성화 시 True;
 
@@ -106,11 +113,13 @@ public class Inventory : MonoBehaviour
             //Debug.Log("뭔데시발");
             if(Input.GetKeyDown(KeyCode.I))
             {       
-                 if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+               //  if(Input.GetKeyDown(KeyCode.Escape))
+               // StartCoroutine(CLoseInventotyCoroutin());
               //  Debug.Log("I 눌리면 나와");
-                activated = true;
-                
+               // activated = true;
+                activated = !activated  ; // 빈센조
+
+
                 if(activated)
                 {
                     invenFlag++;
@@ -121,7 +130,16 @@ public class Inventory : MonoBehaviour
                     tabActivated= true;
                     itemActivated = false;
                     ShowTab();
-                
+                    //StartCoroutine(SelectedTabEffectCoroutin);
+                }
+                else 
+                {
+                    theAudio.Play(Cancle_Sound);
+                    StopAllCoroutines();
+                    go.SetActive(false);
+                    tabActivated = false;
+                    itemActivated = false;
+                    theOrder.Move();
 
                 }
                 // if(Input.GetKeyDown(KeyCode.H))
@@ -139,8 +157,8 @@ public class Inventory : MonoBehaviour
 
             if(activated)
             {   
-                 if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+               //  if(Input.GetKeyDown(KeyCode.Escape))
+                //StartCoroutine(CLoseInventotyCoroutin());
                 
                 if(tabActivated) //tab 활성화시 키입력 처리
                 {
@@ -181,7 +199,7 @@ public class Inventory : MonoBehaviour
                         tabActivated =false;
                         PreventExec= true;
 
-                        Debug.Log("아니 시발 색이 안바뀌는데?");
+                      //  Debug.Log("아니 시발 색이 안바뀌는데?");
                         Debug.Log(selected_Tab);
                         
                         
@@ -198,9 +216,23 @@ public class Inventory : MonoBehaviour
                    
                     if(inventoryTabList.Count > 0)
                     {
+                        
                     if(Input.GetKeyDown(KeyCode.DownArrow))
                     {
-                        if(selecteditem < inventoryTabList.Count-2)
+
+                        if(selecteditem+2>slotCount)
+                        {   
+                            if(page<(inventoryTabList.Count-1)/MAX_SLOTS_COUNt)
+                             page++;
+                            else
+                             page=0;
+                       
+                            RemoveSlots();
+                            ShowPage();
+                        }
+
+
+                        if(selecteditem < slotCount-1)
                         selecteditem+=2;
                         else
                         selecteditem %=2;
@@ -211,10 +243,22 @@ public class Inventory : MonoBehaviour
                     }
                     else if(Input.GetKeyDown(KeyCode.UpArrow))
                     {
+
+                        if(selecteditem-2<0)
+                        {   
+                            if(page!=0)
+                             page--;
+                            else
+                             page=(inventoryTabList.Count-1)/MAX_SLOTS_COUNt;
+                       
+                            RemoveSlots();
+                            ShowPage();
+                        }
+
                         if(selecteditem > 1)
                         selecteditem-=2;
                         else
-                        selecteditem =inventoryTabList.Count-1-selecteditem;
+                        selecteditem =slotCount-selecteditem;
 
                         theAudio.Play(Key_sound);
                         Seleted_func_item();
@@ -222,7 +266,19 @@ public class Inventory : MonoBehaviour
 
                     else if(Input.GetKeyDown(KeyCode.RightArrow))
                     {
-                        if(selecteditem < inventoryTabList.Count-1)
+                        if(selecteditem+1>slotCount)
+                        {   
+                            if(page<(inventoryTabList.Count-1)/MAX_SLOTS_COUNt)
+                             page++;
+                            else
+                             page=0;
+                       
+                            RemoveSlots();
+                            ShowPage();
+                        }
+
+
+                        if(selecteditem < slotCount)
                         selecteditem++;
                         else selecteditem = 0;
                          theAudio.Play(Key_sound);
@@ -232,9 +288,22 @@ public class Inventory : MonoBehaviour
 
                     else if(Input.GetKeyDown(KeyCode.LeftArrow))
                     {
+
+                        if(selecteditem-1<0)
+                        {   
+                            if(page!=0)
+                             page--;
+                            else
+                             page=(inventoryTabList.Count-1)/MAX_SLOTS_COUNt;
+                       
+                            RemoveSlots();
+                            ShowPage();
+                        }
+
+
                         if(selecteditem >0)
                         selecteditem--;
-                        else selecteditem = inventoryTabList.Count-1;
+                        else selecteditem = slotCount;
                          theAudio.Play(Key_sound);
                         Seleted_func_item();
                     }
@@ -260,8 +329,12 @@ public class Inventory : MonoBehaviour
                         }
                 
                  
-                  }
-                    }  
+                    }
+
+
+            
+                }  
+
                     if(Input.GetKeyDown(KeyCode.X))
                     {
                         theAudio.Play(Cancle_Sound);
@@ -270,10 +343,11 @@ public class Inventory : MonoBehaviour
                         tabActivated=true;
                         ShowTab();
                     }
-                
+
             }
-                if(Input.GetKeyUp(KeyCode.Z)) // 중복 실행 방지
-                PreventExec = false;
+                 if(Input.GetKeyUp(KeyCode.Z)) // 중복 실행 방지
+                PreventExec = false;          
+             
             }
         }
         
@@ -281,10 +355,12 @@ public class Inventory : MonoBehaviour
 
     public void GetItem(int _item_ID, int _count =1)
     {
+       
         for(int i = 0 ; i <theData.itemList.Count;i++)
         {
             if(_item_ID == theData.itemList[i].itemID)
             {
+                // Debug.Log("2차확인");
                 var clone = Instantiate(prefab_floating_TEXT,
                 Player_Manager.instance.transform.position,Quaternion.Euler(Vector3.zero));
 
@@ -292,21 +368,36 @@ public class Inventory : MonoBehaviour
 
                 clone.transform.SetParent(this.transform);
 
-                for(int j = 0 ; j < inventoryItemList.Count;j++)
+                for(int j = 0 ; j < inventoryItemList.Count; j++)
                 {
+                    Debug.Log("z갑 출력 : "+ j);
+                     Debug.Log("리스트 내용 : 인벤토리아이템개수 :  " + inventoryItemList.Count);
+
                     if(inventoryItemList[j].itemID == _item_ID)
                     {   
                         if(inventoryItemList[j].itemType == Item.ItemType.Use)
-                        inventoryItemList[j].itemCount += _count;
-                        return;
-                    }
-                    else
-                    {   
-                        for( int k=0 ; k<_count; k++)
-                        inventoryItemList.Add(theData.itemList[i]);
-                        return;
+                        {
+                            inventoryItemList[j].itemCount += _count;
 
+                        }
+
+                        else
+                        {
+                            inventoryItemList.Add(theData.itemList[i]);
+
+                        }
+                        return;
                     }
+                    // else
+                    // {   
+                    //     for( int k=0 ; k<_count; k++)
+                    //     {
+                    //         Debug.Log("개수는 : " + _count);
+                    //      inventoryItemList.Add(theData.itemList[i]);
+                    //     }
+                    //     // return;
+
+                    // }
 
                 }
 
@@ -321,14 +412,37 @@ public class Inventory : MonoBehaviour
         Debug.LogError("There is a no ItemID about that item");
 
     }
+
+    public void ShowPage()
+    {
+        slotCount = -1; 
+ 
+        for(int i = page*MAX_SLOTS_COUNt; i < inventoryTabList.Count; i++) // 인벤토리 tab 리스트 내용을 인벤토리 슬롯에 추가
+        {
+            Debug.Log("i의 값은 : "+i+"입니다");
+            slotCount = i-(page*MAX_SLOTS_COUNt);
+            Debug.Log("slotCount : " + slotCount );
+            slots[slotCount].gameObject.SetActive(true);
+            slots[slotCount].Additem(inventoryTabList[i]);
+
+
+            if(slotCount == MAX_SLOTS_COUNt-1)
+            break;
+
+        }
+
+    }
+
+
     public void ShowItem()
     {
-         if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+       //  if(Input.GetKeyDown(KeyCode.Escape))
+         //       StartCoroutine(CLoseInventotyCoroutin());
 
         inventoryTabList.Clear();
         RemoveSlots();
         selecteditem = 0 ;
+        page=0;
 
         switch(selected_Tab)  // tab에 따른 아이템 분류 
         {
@@ -374,14 +488,9 @@ public class Inventory : MonoBehaviour
 
         }
 
-        for(int i = 0; i < inventoryTabList.Count; i++) // 인벤토리 tab 리스트 내용을 인벤토리 슬롯에 추가
-        {
-            slots[i].gameObject.SetActive(true);
-            slots[i].Additem(inventoryTabList[i]);
+        ShowPage();
 
-        }
-
-        
+        Seleted_func_item();
 
 
     }
@@ -392,16 +501,16 @@ public class Inventory : MonoBehaviour
     {
 
         Debug.Log("닝기미시뷰래");
-         if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+        // if(Input.GetKeyDown(KeyCode.Escape))
+          //      StartCoroutine(CLoseInventotyCoroutin());
         StopAllCoroutines();
 
-        if(inventoryTabList.Count >0)
+        if(slotCount >0)
         {   
             Color color = slots[0].selected_ITEM.gameObject.GetComponent<Image>().color;
             color.a = 0f;
 
-            for(int i = 0 ; i < inventoryTabList.Count; i++)
+            for(int i = 0 ; i <= slotCount; i++)
                 slots[i].selected_ITEM.GetComponent<Image>().color = color;
 
         
@@ -428,8 +537,8 @@ public class Inventory : MonoBehaviour
 
     public void RemoveSlots()
     {
-         if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+        // if(Input.GetKeyDown(KeyCode.Escape))
+          //      StartCoroutine(CLoseInventotyCoroutin());
         for(int i = 0 ; i < slots.Length ; i++)
         {
             slots[i].RemovItem();
@@ -446,8 +555,8 @@ public class Inventory : MonoBehaviour
 
     public void SelectedTab()
     {
-         if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+       //  if(Input.GetKeyDown(KeyCode.Escape))
+         //       StartCoroutine(CLoseInventotyCoroutin());
         StopAllCoroutines();
         Color color = SelectedTabImages[selected_Tab].GetComponent<Image>().color;
         color.a = 0f;
@@ -471,8 +580,8 @@ public class Inventory : MonoBehaviour
  
     IEnumerator SelectedTabEffectCoroutin()
     {
-         if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+        // if(Input.GetKeyDown(KeyCode.Escape))
+          //      StartCoroutine(CLoseInventotyCoroutin());
         while(tabActivated)
         {
               Color color = SelectedTabImages[0].GetComponent<Image>().color;
@@ -506,8 +615,8 @@ public class Inventory : MonoBehaviour
     {
         while(itemActivated)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
-                StartCoroutine(CLoseInventotyCoroutin());
+            //if(Input.GetKeyDown(KeyCode.Escape))
+              //  StartCoroutine(CLoseInventotyCoroutin());
 
               Color color = slots[0].GetComponent<Image>().color;
 

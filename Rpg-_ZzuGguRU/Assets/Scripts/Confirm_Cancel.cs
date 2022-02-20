@@ -47,7 +47,7 @@ public class Confirm_Cancel : MonoBehaviour
                 activated = false;
 
             }
-            else if(Input.GetKeyDown(KeyCode.Escape))
+            else if(Input.GetKeyDown(KeyCode.X))
             {
                 theAudio.Play(Cancle_Sound);
                 keyinput = false;
