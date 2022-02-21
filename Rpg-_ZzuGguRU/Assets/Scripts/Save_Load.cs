@@ -52,6 +52,8 @@ public class Save_Load : MonoBehaviour
 
     private Vector3 vector;
 
+    private FadeManager theFade;
+
 
     public void CallSave()
     {
@@ -145,6 +147,10 @@ public class Save_Load : MonoBehaviour
         thePlayerStat  =FindObjectOfType<PlayerStat>();
         theEquip = FindObjectOfType<Equipment>();
         theinven = FindObjectOfType<Inventory>();
+        theFade = FindObjectOfType<FadeManager>();
+
+
+        theFade.FadeOut();
 
         thePlayer.currentMapName = theData.mapName;
         thePlayer.currentSceneName = theData.sceneName;
@@ -217,10 +223,7 @@ public class Save_Load : MonoBehaviour
                 theinven.LoadItem(itemList);
                 theEquip.ShowText();
 
-               GameManager theGm = FindObjectOfType<GameManager>();
-               theGm.LoadStart();
-
-                SceneManager.LoadScene(theData.sceneName);
+                StartCoroutine(WaitCoroutine());
 
 
         }
@@ -233,6 +236,16 @@ public class Save_Load : MonoBehaviour
          file.Close();
 
         //Debug.Log(Application.dataPath+ " 의 위치에 저장했습니다");
+    }
+
+    IEnumerator WaitCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        GameManager theGm = FindObjectOfType<GameManager>();
+            theGm.LoadStart();
+
+            SceneManager.LoadScene(theData.sceneName);
+
     }
   
 }

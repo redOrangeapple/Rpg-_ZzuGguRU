@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {   
@@ -12,6 +13,8 @@ public class Menu : MonoBehaviour
     public string Cancel_Sound;
 
     public OrderManager theOrder;
+
+    public GameObject[] gos;
 
     private bool activated;
     // Start is called before the first frame update
@@ -27,6 +30,19 @@ public class Menu : MonoBehaviour
         go.SetActive(false);
         theAudio.Play(Cancel_Sound);
         theOrder.Move();
+    }
+
+
+    public void GOTOTitle()
+    {
+        for(int i = 0 ; i <gos.Length;i++)
+        {
+            Destroy(gos[i]);
+        }
+
+        go.SetActive(false);
+        activated = false;
+        SceneManager.LoadScene("Title");
     }
 
      void Awake() {

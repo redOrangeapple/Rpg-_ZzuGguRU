@@ -8,6 +8,11 @@ public class GameManager : MonoBehaviour
      private Player_Manager thePlayer;
      private Camera_manager theCamera;
 
+     private FadeManager theFade;
+     private Menu theMenu;
+     private Dialogue_Manager theDm;
+     private Camera thecam;
+
     public void LoadStart()
     {
         StartCoroutine(LoadWaitCoroutine());
@@ -21,8 +26,22 @@ public class GameManager : MonoBehaviour
         thePlayer = FindObjectOfType<Player_Manager>();
         bounds = FindObjectsOfType<Bound>();
         theCamera = FindObjectOfType<Camera_manager>();
+        theFade = FindObjectOfType<FadeManager>();
+        theMenu = FindObjectOfType<Menu>();
+        thecam = FindObjectOfType<Camera>();
+        theDm = FindObjectOfType<Dialogue_Manager>();
+
+
+         Color color = thePlayer.GetComponent<SpriteRenderer>().color;
+         color.a=1f;
+
+         thePlayer.GetComponent<SpriteRenderer>().color=color;
+
+
         Debug.Log("씬이동 접근좀 하자!!");
         theCamera.target = GameObject.Find("Player");
+        theMenu.GetComponent<Canvas>().worldCamera = thecam;
+        theDm.GetComponent<Canvas>().worldCamera = thecam;
 
         for(int i = 0 ; i<bounds.Length ;i++)
         {
@@ -32,7 +51,9 @@ public class GameManager : MonoBehaviour
                 break;
 
             }
-
+        //  hpbar.SetActive(true);
+        //  mpbar.SetActive(true);
+            theFade.FadeIn();
         }
 
         

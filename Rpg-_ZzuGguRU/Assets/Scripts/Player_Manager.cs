@@ -18,7 +18,7 @@ public class Player_Manager : MovingObject
 
     private AudioManager theAudio;
 
-    private Save_Load theSaveLoad;
+    // private Save_Load theSaveLoad;
 
 
 
@@ -62,7 +62,7 @@ public class Player_Manager : MovingObject
             boxCollider2D = GetComponent<BoxCollider2D>();
             animator = GetComponent<Animator>();
             theAudio = FindObjectOfType<AudioManager>();
-            theSaveLoad = FindObjectOfType<Save_Load>();
+           // theSaveLoad = FindObjectOfType<Save_Load>();
 
     }
 
@@ -186,10 +186,10 @@ public class Player_Manager : MovingObject
         //     theSaveLoad.CallSave();
         // }
         //불러오기
-        if(Input.GetKeyDown(KeyCode.F9))
-        {
-                theSaveLoad.CallLoad();
-        }
+        // if(Input.GetKeyDown(KeyCode.F9))
+        // {
+        //         theSaveLoad.CallLoad();
+        // }
 
         if(canMove && !notMove && !Attacking)
         {
