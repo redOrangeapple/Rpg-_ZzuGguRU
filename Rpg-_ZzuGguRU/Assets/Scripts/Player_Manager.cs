@@ -181,10 +181,10 @@ public class Player_Manager : MovingObject
     void Update()
     {
         //저장
-        if(Input.GetKeyDown(KeyCode.F5))
-        {
-            theSaveLoad.CallSave();
-        }
+        // if(Input.GetKeyDown(KeyCode.F5))
+        // {
+        //     theSaveLoad.CallSave();
+        // }
         //불러오기
         if(Input.GetKeyDown(KeyCode.F9))
         {
